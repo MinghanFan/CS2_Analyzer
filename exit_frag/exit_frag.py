@@ -262,7 +262,7 @@ for player, stats in player_stats.items():
     total_kills = stats["total_kills"]
     exit_frags = stats["exit_frags"]
     meaningful = stats["meaningful_kills"]
-    total_rounds = len(stats["rounds_participated"])
+    total_rounds = stats["rounds_participated"]  # Already an integer count
     
     # Only include players who got at least 1 kill
     if total_kills == 0:
