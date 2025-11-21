@@ -12,6 +12,135 @@ output_top10 = "exit_frag_merchants_top10.png"
 output_bottom10 = "exit_frag_cleanest_bottom10.png"
 MIN_ROUNDS = 1000
 
+# ===== TEAM COLORS =====
+# Team name -> background color (hex)
+TEAM_COLORS = {
+    "Spirit": "#99A4AE",           # Blue
+    "Vitality": "#EEE52E",         # Orange/Yellow
+    "Falcons": "#2EAC20",          # Dark Blue
+    "G2": "#413636FF",               # Dark Navy
+    "FaZe": "#C41E3A",             # Red
+    "Liquid": "#001C3E",           # Navy Blue
+    "FURIA": "#655757",            # Orange
+    "MOUZ": "#DC4B4B",             # Blue
+    "The MongolZ": "#A4810F",      # Gold
+    "Natus Vincere": "#FBD22B",    # Yellow
+    "GamerLegion": "#597EDD",      # Green
+    "Aurora": "#00BAE8",           # Light Blue
+    "Eternal Fire": "#DFC033",     # Orange Red
+    "paiN": "#756A74",             # Purple
+    "HEROIC": "#837D7D",           # Orange
+    "Astralis": "#CF303A",         # Red
+    "MIBR": "#FFD700",             # Gold
+    "Passion UA": "#0057B8",       # Ukrainian Blue
+    "Complexity": "#1A4D8F",       # Blue
+    "3DMAX": "#F12323",            # Red
+    "Virtus.pro": "#F18109",       # Orange
+    # Default fallback
+    "default": "#2c3e50"           # Dark gray
+}
+
+# ===== PLAYER TO TEAM MAPPING =====
+# Based on HLTV data provided
+PLAYER_TEAMS = {
+    "donk": "Spirit",
+    "ZywOo": "Vitality",
+    "m0NESY": "Falcons",
+    "sh1ro": "Spirit",
+    "Twistzz": "FaZe",
+    "KSCERATO": "FURIA",
+    "ropz": "Vitality",
+    "kyousuke": "Falcons",
+    "frozen": "FaZe",
+    "XANTARES": "Eternal Fire",
+    "molodoy": "FURIA",
+    "MATYS": "G2",
+    "NiKo": "Falcons",
+    "HeavyGod": "G2",
+    "Grim": "Passion UA",
+    "flameZ": "Vitality",
+    "Spinx": "MOUZ",
+    "Senzu": "The MongolZ",
+    "b1t": "Natus Vincere",
+    "EliGE": "Liqiud",
+    "iM": "Natus Vincere",
+    "YEKINDAR": "FURIA",
+    "REZ": "GamerLegion",
+    "Wicadia": "Eternal Fire",
+    "yuurih": "FURIA",
+    "zont1x": "Spirit",
+    "PR": "GamerLegion",
+    "dgt": "paiN",
+    "xertioN": "MOUZ",
+    "mezii": "Vitality",
+    "tN1R": "HEROIC",
+    "w0nderful": "Natus Vincere",
+    "torzsi": "MOUZ",
+    "jL": "Natus Vincere",
+    "woxic": "Eternal Fire",
+    "stavn": "Astralis",
+    "insani": "MIBR",
+    "hallzerk": "Complexity",
+    "malbsMd": "G2",
+    "Staehr": "Astralis",
+    "nqz": "paiN",
+    "mzinho": "The MongolZ",
+    "Maka": "3DMAX",
+    "Jimpphat": "MOUZ",
+    "910": "The MongolZ",
+    "fame": "Virtus.pro",
+    "jottAAA": "Eternal Fire",
+    "FL1T": "Virtus.pro",
+    "NertZ": "Liquid",
+    "rain": "FaZe",
+    "magixx": "Spirit",
+    "degster": "Falcons",
+    "TeSeS": "Falcons",
+    "SunPayus": "HEROIC",
+    "device": "Astralis",
+    "huNter-": "G2",
+    "ICY": "Virtus.pro",
+    "ultimate": "Liquid",
+    "JT": "Complexity",
+    "Ex3rcice": "3DMAX",
+    "jabbi": "Astralis",
+    "bLitz": "The MongolZ",
+    "Tauson": "GamerLegion",
+    "biguzera": "paiN",
+    "broky": "FaZe",
+    "Lucky": "3DMAX",
+    "saffee": "MIBR",
+    "dav1deuS": "paiN",
+    "exit": "MIBR",
+    "Techno": "The MongolZ",
+    "bodyy": "3DMAX",
+    "Magisk": "Falcons",
+    "kyxsan": "Falcons",
+    "Brollan": "MOUZ",
+    "FL4MUS": "Virtus.pro",
+    "yxngstxr": "HEROIC",
+    "zweih": "Spirit",
+    "apEX": "Vitality",
+    "nicx": "Complexity",
+    "snow": "paiN",
+    "FalleN": "FURIA",
+    "sl3nd": "GamerLegion",
+    "Graviti": "3DMAX",
+    "Aleksib": "Natus Vincere",
+    "NAF": "Liquid",
+    "electroNic": "Virtus.pro",
+    "HooXi": "Astralis",
+    "Snax": "G2",
+    "chopper": "Spirit",
+    "karrigan": "FaZe",
+    "ztr": "GamerLegion",
+    "LNZ": "HEROIC",
+    "siuhy": "Liquid",
+    "Lucaozy": "MIBR",
+    "MAJ3R": "Eternal Fire",
+    "cadiaN": "Astralis",
+}
+
 # ===== ABSOLUTE POSITION CONTROLS - CHANGE THESE VALUES =====
 # Figure dimensions (pixels at 300 DPI)
 FIGURE_WIDTH_INCHES = 11
@@ -21,17 +150,17 @@ FIGURE_HEIGHT_INCHES = 10
 PHOTO_X = 8              # Photo left edge position
 NAME_X = 18              # Player name position
 BAR_START_X = 32         # Where bars start
-BAR_END_X = 80           # Where bars end (max length)
+BAR_END_X = 75           # Where bars end (max length) - SHORTENED (was 80)
 STATS_X_OFFSET = 2       # Stats offset from bar end
 
 # Y-axis spacing
-Y_START = 12              # First player from top (%)
+Y_START = 12             # First player from top (%)
 Y_SPACING = 9            # Space between each player (%)
 
 # Element sizes
-PHOTO_SIZE = 55          # Photo size in pixels
+PHOTO_SIZE = 57          # Photo size in pixels
 BAR_HEIGHT = 1.7         # Bar height (relative) - INCREASED
-PHOTO_BORDER = 1.5       # Photo border width
+PHOTO_BORDER = 0       # Photo border width
 BAR_BORDER = 2           # Bar border width
 
 # Font sizes
@@ -41,7 +170,7 @@ TITLE_FONT = 20
 SUBTITLE_FONT = 9
 
 # Title positions (0-100 scale)
-TITLE_X = 55
+TITLE_X = 53
 TITLE_Y = 98             # MOVED HIGHER (was 96)
 SUBTITLE_Y = 95          # MOVED HIGHER (was 93)
 
@@ -96,7 +225,7 @@ def create_placeholder_image(size=100):
     draw.ellipse([size//4, size//4, 3*size//4, 3*size//4], fill='#95a5a6')
     return img
 
-def load_player_image(player_name, photo_dir, size=50):
+def load_player_image(player_name, photo_dir, size=50, team_color='#2c3e50'):
     photo_path = photo_dir / f"{player_name}.png"
     img = None
     if photo_path.exists():
@@ -111,7 +240,17 @@ def load_player_image(player_name, photo_dir, size=50):
     if img is None:
         img = create_placeholder_image(size)
     img = img.resize((size, size), Image.Resampling.LANCZOS)
-    return OffsetImage(img, zoom=1.0)
+    
+    # Convert to RGBA if needed for team color background
+    if img.mode != 'RGBA':
+        img = img.convert('RGBA')
+    
+    # Create a background with team color
+    background = Image.new('RGBA', (size, size), team_color)
+    # Paste the player image on top (if it has transparency, the team color shows through)
+    background.paste(img, (0, 0), img if img.mode == 'RGBA' else None)
+    
+    return OffsetImage(background, zoom=1.0)
 
 def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
     """Create chart with ABSOLUTE positioning - no automatic adjustments"""
@@ -145,14 +284,17 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
         # Calculate Y position (fixed spacing)
         y_pos = 100 - Y_START - (idx * Y_SPACING)
         
-        # 1. Add photo at FIXED X position
-        img = load_player_image(player_name, player_photos_dir, size=PHOTO_SIZE)
+        # 1. Add photo at FIXED X position with team color background
+        team_name = PLAYER_TEAMS.get(player_name, "default")
+        team_color = TEAM_COLORS.get(team_name, TEAM_COLORS["default"])
+        
+        img = load_player_image(player_name, player_photos_dir, size=PHOTO_SIZE, team_color=team_color)
         imagebox = AnnotationBbox(img, (PHOTO_X, y_pos), 
                                  frameon=True, 
                                  box_alignment=(0.5, 0.5),
                                  bboxprops=dict(edgecolor=bar_edge, 
                                                linewidth=PHOTO_BORDER, 
-                                               facecolor='white'))
+                                               facecolor=team_color))
         ax.add_artist(imagebox)
         
         # 2. Add player name at FIXED X position
@@ -188,7 +330,7 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
            transform=ax.transData)
     
     # 7. Add minimum rounds note
-    ax.text(110, 2, f'Minimum {MIN_ROUNDS} rounds played',
+    ax.text(103, 2, f'Minimum {MIN_ROUNDS} rounds played',
            ha='right', va='bottom',
            fontsize=8, style='italic', color='#95a5a6',
            transform=ax.transData)
