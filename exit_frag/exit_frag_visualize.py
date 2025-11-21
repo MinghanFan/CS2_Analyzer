@@ -20,7 +20,26 @@ MANUAL_ADJUSTMENTS = {
     # Example:
     # "s1mple": {"ExitFrags": +1, "TotalKills": 0, "MeaningfulKills": -1},
     # "ZywOo": {"ExitFrags": -1, "TotalKills": 0, "MeaningfulKills": +1},
-    
+    "ICY": {"ExitFrags": 0, "TotalKills": -16, "MeaningfulKills": 0, "TotalRounds": +108},
+    "FL1T": {"ExitFrags": 0, "TotalKills": -20, "MeaningfulKills": 0, "TotalRounds": +108},
+    "FL4MUS": {"ExitFrags": 0, "TotalKills": -15, "MeaningfulKills": 0, "TotalRounds": +44},
+    "sl3nd": {"ExitFrags": 0, "TotalKills": -13, "MeaningfulKills": 0, "TotalRounds": +16},
+    "SunPayus": {"ExitFrags": 0, "TotalKills": -7, "MeaningfulKills": 0, "TotalRounds": +120},
+    "KSCERATO": {"ExitFrags": 0, "TotalKills": -15, "MeaningfulKills": 0, "TotalRounds": +319},
+    "ropz": {"ExitFrags": 0, "TotalKills": -20, "MeaningfulKills": 0, "TotalRounds": +582},
+    "nqz": {"ExitFrags": 0, "TotalKills": -14, "MeaningfulKills": 0, "TotalRounds": +85},
+    "Aleksib": {"ExitFrags": 0, "TotalKills": -15, "MeaningfulKills": 0, "TotalRounds": +57},
+    "Twistzz": {"ExitFrags": 0, "TotalKills": -17, "MeaningfulKills": 0, "TotalRounds": +76},
+    "b1t": {"ExitFrags": 0, "TotalKills": -18, "MeaningfulKills": 0, "TotalRounds": +57},
+    "zweih": {"ExitFrags": 0, "TotalKills": -11, "MeaningfulKills": 0, "TotalRounds": +81},
+    "chopper": {"ExitFrags": 0, "TotalKills": -28, "MeaningfulKills": 0, "TotalRounds": +237},
+    "EliGE": {"ExitFrags": 0, "TotalKills": -14, "MeaningfulKills": 0, "TotalRounds": +72},
+    "dav1deuS": {"ExitFrags": 0, "TotalKills": -14, "MeaningfulKills": 0, "TotalRounds": +85},
+    "bodyy": {"ExitFrags": 0, "TotalKills": -14, "MeaningfulKills": 0, "TotalRounds": +166},
+    "snow": {"ExitFrags": 0, "TotalKills": -14, "MeaningfulKills": 0, "TotalRounds": +85},
+    "TeSeS": {"ExitFrags": 0, "TotalKills": -26, "MeaningfulKills": 0, "TotalRounds": +488},
+    "jottAAA": {"ExitFrags": 0, "TotalKills": -24, "MeaningfulKills": 0, "TotalRounds": +201},
+    "kyousuke": {"ExitFrags": 0, "TotalKills": -9, "MeaningfulKills": 0, "TotalRounds": +83},
 }
 
 def apply_manual_adjustments(df, adjustments):

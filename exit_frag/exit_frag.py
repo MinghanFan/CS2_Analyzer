@@ -5,8 +5,8 @@ import numpy as np
 from collections import defaultdict
 
 # ===== Configuration =====
-demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025")  # Change to your root directory
-output_csv = "exit_frag_analysis.csv"
+demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025/BLAST_Rivals_2025_Season_2")  # Change to your root directory
+output_csv = "exit_frag_analysis_rival2.csv"
 DEFAULT_TICKRATE = 64
 
 # ===== Valid weapons for knife round detection =====
@@ -69,12 +69,12 @@ demo_files = [f for f in sorted(demo_root.rglob("*.dem")) if not f.name.startswi
 print(f"Found {len(demo_files)} demos under {demo_root}")
 
 # ===== Global aggregators =====
-# player -> {"total_kills": int, "exit_frags": int, "meaningful_kills": int, "rounds_participated": set()}
+# player -> {"total_kills": int, "exit_frags": int, "meaningful_kills": int, "rounds_participated": int}
 player_stats = defaultdict(lambda: {
     "total_kills": 0,
     "exit_frags": 0,
     "meaningful_kills": 0,
-    "rounds_participated": set()  # Store (demo_name, round_num) tuples
+    "rounds_participated": 0  # Count rounds where player appeared
 })
 countknife = 0
 
@@ -120,15 +120,19 @@ for demo_path in demo_files:
                     ticks_df = ticks_df[ticks_df["round_num"] != first_round]
 
     # ===== Track all players in all rounds from ticks =====
+    # Loop through each round and find which players appeared
     if ticks_df is not None and not ticks_df.empty and "name" in ticks_df.columns and "round_num" in ticks_df.columns:
         ticks_df_clean = ticks_df.dropna(subset=["name", "round_num"]).copy()
         ticks_df_clean["name"] = ticks_df_clean["name"].apply(lambda x: norm_name(str(x)))
         
-        # Get unique (player, round) combinations
-        for _, tick_row in ticks_df_clean[["name", "round_num"]].drop_duplicates().iterrows():
-            player = tick_row["name"]
-            rnd = int(tick_row["round_num"])
-            player_stats[player]["rounds_participated"].add((demo_path.name, rnd))
+        # For each round, find unique players
+        for round_num in rounds_df["round_num"].unique():
+            round_ticks = ticks_df_clean[ticks_df_clean["round_num"] == round_num]
+            if not round_ticks.empty:
+                # Get unique players in this round
+                players_in_round = round_ticks["name"].unique()
+                for player in players_in_round:
+                    player_stats[player]["rounds_participated"] += 1
 
     # Check for required columns
     required_round_cols = ["round_num", "winner", "reason", "end"]
@@ -273,8 +277,8 @@ for player, stats in player_stats.items():
         "TotalKills": total_kills,
         "MeaningfulKills": meaningful,
         "ExitFrags": exit_frags,
-        "MeaningfulRate_%": round(meaningful_rate, 2),
-        "ExitFragRate_%": round(exit_frag_rate, 2)
+        "MeaningfulRate_%": round(meaningful_rate, 4),
+        "ExitFragRate_%": round(exit_frag_rate, 4)
     })
 
 if rows:
