@@ -160,7 +160,7 @@ Y_SPACING = 9            # Space between each player (%)
 # Element sizes
 PHOTO_SIZE = 57          # Photo size in pixels
 BAR_HEIGHT = 1.7         # Bar height (relative) - INCREASED
-PHOTO_BORDER = 0       # Photo border width
+PHOTO_BORDER = 1       # Photo border width
 BAR_BORDER = 2           # Bar border width
 
 # Font sizes
@@ -231,26 +231,21 @@ def load_player_image(player_name, photo_dir, size=50, team_color='#2c3e50'):
     if photo_path.exists():
         try:
             img = Image.open(photo_path)
-            if img.mode == 'RGBA':
-                img = img.convert('RGBA')
-            elif img.mode != 'RGB':
-                img = img.convert('RGB')
+            if img.mode not in ("RGB", "RGBA"):
+                img = img.convert("RGBA")
         except Exception:
             img = None
     if img is None:
         img = create_placeholder_image(size)
-    img = img.resize((size, size), Image.Resampling.LANCZOS)
     
-    # Convert to RGBA if needed for team color background
-    if img.mode != 'RGBA':
-        img = img.convert('RGBA')
+    # Scale PNG only; leave background color to AnnotationBbox
+    max_dim = max(img.width, img.height)
+    if max_dim:
+        zoom = min(size / max_dim, 1.2)
+    else:
+        zoom = 1.0
     
-    # Create a background with team color
-    background = Image.new('RGBA', (size, size), team_color)
-    # Paste the player image on top (if it has transparency, the team color shows through)
-    background.paste(img, (0, 0), img if img.mode == 'RGBA' else None)
-    
-    return OffsetImage(background, zoom=1.0)
+    return OffsetImage(img, zoom=zoom)
 
 def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
     """Create chart with ABSOLUTE positioning - no automatic adjustments"""
@@ -286,7 +281,7 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
         
         # Add grey background for odd rows (idx 1, 3, 5, 7, 9)
         if idx % 2 == 0:
-            grey_rect = plt.Rectangle((0, y_pos - 4.575), 107, BAR_HEIGHT*5.35,
+            grey_rect = plt.Rectangle((0, y_pos - 4.475), 107, BAR_HEIGHT*5.29,
                                      facecolor="#eeeeee", edgecolor='none',
                                      zorder=0, transform=ax.transData, clip_on=False)
             ax.add_patch(grey_rect)
@@ -349,7 +344,7 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
            transform=ax.transData)
     
     plt.tight_layout(pad=0)
-    plt.savefig(output_file, format='png', dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_file, format='png', dpi=600, bbox_inches='tight', facecolor='white')
     print(f"Saved: {output_file}")
     plt.close()
 
@@ -370,12 +365,12 @@ top10 = df_filtered.nlargest(10, "PreciseExitRate").reset_index(drop=True)
 bottom10 = df_filtered.nsmallest(10, "PreciseExitRate").reset_index(drop=True)
 
 # Generate visualizations
-top_title = "TOP 10 EXIT FRAGGERS"
+top_title = "TOP 10 EXIT-FRAGGERS"
 top_subtitle = ("Exit frags = kills AFTER team already lost the round (bomb exploded/defused, time ran out)\n"
                 "These players get the most meaningless kills when rounds are already decided")
 create_exit_frag_chart(top10, top_title, top_subtitle, output_top10, is_top=True)
 
-bottom_title = "TOP 10 NON-EXIT FRAGGERS"
+bottom_title = "TOP 10 NON EXIT-FRAGGERS"
 bottom_subtitle = ("Exit frags = kills AFTER team already lost the round (bomb exploded/defused, time ran out)\n"
                    "These players have the lowest rate of meaningless kills - every kill counts")
 create_exit_frag_chart(bottom10, bottom_title, bottom_subtitle, output_bottom10, is_top=False)
