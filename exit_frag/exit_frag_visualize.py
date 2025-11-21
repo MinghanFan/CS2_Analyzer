@@ -258,7 +258,7 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
     fig, ax = plt.subplots(figsize=(FIGURE_WIDTH_INCHES, FIGURE_HEIGHT_INCHES))
     
     # Remove all axes
-    ax.set_xlim(0, 100)
+    ax.set_xlim(0, 105)
     ax.set_ylim(0, 100)
     ax.axis('off')
     
@@ -283,6 +283,13 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
         
         # Calculate Y position (fixed spacing)
         y_pos = 100 - Y_START - (idx * Y_SPACING)
+        
+        # Add grey background for odd rows (idx 1, 3, 5, 7, 9)
+        if idx % 2 == 0:
+            grey_rect = plt.Rectangle((0, y_pos - 4.575), 107, BAR_HEIGHT*5.35,
+                                     facecolor="#eeeeee", edgecolor='none',
+                                     zorder=0, transform=ax.transData, clip_on=False)
+            ax.add_patch(grey_rect)
         
         # 1. Add photo at FIXED X position with team color background
         team_name = PLAYER_TEAMS.get(player_name, "default")
@@ -333,6 +340,12 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
     ax.text(103, 2, f'Minimum {MIN_ROUNDS} rounds played',
            ha='right', va='bottom',
            fontsize=8, style='italic', color='#95a5a6',
+           transform=ax.transData)
+    
+    # 8. Add credits
+    ax.text(103, 0.5, 'Photo by HLTV | Data by clu0ki',
+           ha='right', va='bottom',
+           fontsize=7, color='#95a5a6',
            transform=ax.transData)
     
     plt.tight_layout(pad=0)
