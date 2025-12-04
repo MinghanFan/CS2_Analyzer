@@ -15,29 +15,29 @@ MIN_ROUNDS = 1000
 # ===== TEAM COLORS =====
 # Team name -> background color (hex)
 TEAM_COLORS = {
-    "Spirit": "#99A4AE",           # Blue
-    "Vitality": "#EEE52E",         # Orange/Yellow
-    "Falcons": "#2EAC20",          # Dark Blue
-    "G2": "#413636FF",               # Dark Navy
-    "FaZe": "#C41E3A",             # Red
-    "Liquid": "#001C3E",           # Navy Blue
-    "FURIA": "#655757",            # Orange
-    "MOUZ": "#DC4B4B",             # Blue
-    "The MongolZ": "#A4810F",      # Gold
-    "Natus Vincere": "#FBD22B",    # Yellow
-    "GamerLegion": "#597EDD",      # Green
-    "Aurora": "#00BAE8",           # Light Blue
-    "Eternal Fire": "#DFC033",     # Orange Red
-    "paiN": "#756A74",             # Purple
-    "HEROIC": "#837D7D",           # Orange
-    "Astralis": "#CF303A",         # Red
-    "MIBR": "#FFD700",             # Gold
-    "Passion UA": "#0057B8",       # Ukrainian Blue
-    "Complexity": "#1A4D8F",       # Blue
-    "3DMAX": "#F12323",            # Red
-    "Virtus.pro": "#F18109",       # Orange
+    "Spirit": "#979da0",
+    "Vitality": "#ead967",
+    "Falcons": "#93ba9c",
+    "G2": "#8c91a0",
+    "FaZe": "#d16767",
+    "Liquid": "#6789ae",
+    "FURIA": "#877874",
+    "MOUZ": "#d79696",
+    "The MongolZ": "#d0ac7b",
+    "Natus Vincere": "#e8d166",
+    "GamerLegion": "#9bbddd",
+    "Aurora": "#8fccd7",
+    "Eternal Fire": "#d9bd81",
+    "paiN": "#b7a4a8",
+    "HEROIC": "#c6b5a0",
+    "Astralis": "#d99a9a",
+    "MIBR": "#e6cb66",
+    "Passion UA": "#91a8d0",
+    "Complexity": "#8a9ec2",
+    "3DMAX": "#de7e7e",
+    "Virtus.pro": "#e4a552",
     # Default fallback
-    "default": "#2c3e50"           # Dark gray
+    "default": "#73808a"
 }
 
 # ===== PLAYER TO TEAM MAPPING =====
@@ -148,9 +148,9 @@ FIGURE_HEIGHT_INCHES = 10
 
 # X-axis absolute positions (0-100 scale, like percentage of width)
 PHOTO_X = 8              # Photo left edge position
-NAME_X = 18              # Player name position
-BAR_START_X = 32         # Where bars start
-BAR_END_X = 75           # Where bars end (max length) - SHORTENED (was 80)
+NAME_X = 14.5              # Player name position
+BAR_START_X = 32-3         # Where bars start
+BAR_END_X = 75-3           # Where bars end (max length) - SHORTENED (was 80)
 STATS_X_OFFSET = 2       # Stats offset from bar end
 
 # Y-axis spacing
@@ -164,9 +164,9 @@ PHOTO_BORDER = 1       # Photo border width
 BAR_BORDER = 2           # Bar border width
 
 # Font sizes
-NAME_FONT = 12
+NAME_FONT = 12*1.3
 STATS_FONT = 10
-TITLE_FONT = 20
+TITLE_FONT = 20*1.7
 SUBTITLE_FONT = 9
 
 # Title positions (0-100 scale)
@@ -174,11 +174,11 @@ TITLE_X = 53
 TITLE_Y = 98             # MOVED HIGHER (was 96)
 SUBTITLE_Y = 95          # MOVED HIGHER (was 93)
 
-# Colors
-RED_BAR = '#e74c3c'
-RED_BORDER = '#c0392b'
-GREEN_BAR = '#2ecc71'
-GREEN_BORDER = '#27ae60'
+# Colors (soft but a touch brighter)
+RED_BAR = "#e17c7c"
+RED_BORDER = "#c47d7d"
+GREEN_BAR = "#8bd0a7"
+GREEN_BORDER = '#8ab7a0'
 
 # ===== Manual Adjustments =====
 MANUAL_ADJUSTMENTS = {
@@ -282,7 +282,7 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
         # Add grey background for odd rows (idx 1, 3, 5, 7, 9)
         if idx % 2 == 0:
             grey_rect = plt.Rectangle((0, y_pos - 4.475), 107, BAR_HEIGHT*5.29,
-                                     facecolor="#eeeeee", edgecolor='none',
+                                     facecolor="#f2f2f2", edgecolor='none',
                                      zorder=0, transform=ax.transData, clip_on=False)
             ax.add_patch(grey_rect)
         
@@ -303,7 +303,7 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
         ax.text(NAME_X, y_pos, player_name, 
                va='center', ha='left', 
                fontsize=NAME_FONT, fontweight='bold',
-               color='#2c3e50', transform=ax.transData)
+               color='#4a545b', transform=ax.transData)
         
         # 3. Add bar - FIXED start, length based on rate (normalized to max)
         bar_length = (exit_rate / max_rate) * (BAR_END_X - BAR_START_X)
@@ -317,12 +317,12 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
         stats_text = f"{exit_rate:.3f}%  |  {exit_frags}/{total_kills} kills  |  {total_rounds} rounds"
         ax.text(stats_x, y_pos, stats_text,
                va='center', ha='left',
-               fontsize=STATS_FONT, color='#34495e', transform=ax.transData)
+               fontsize=STATS_FONT, color='#4b5964', transform=ax.transData)
     
     # 5. Add title at FIXED position
     ax.text(TITLE_X, TITLE_Y, title,
            ha='center', va='center',
-           fontsize=TITLE_FONT, fontweight='bold', color='#2c3e50',
+           fontsize=TITLE_FONT, fontweight='bold', color='#4a545b',
            transform=ax.transData)
     
     # 6. Add subtitle at FIXED position
@@ -332,15 +332,15 @@ def create_exit_frag_chart(data, title, subtitle, output_file, is_top=True):
            transform=ax.transData)
     
     # 7. Add minimum rounds note
-    ax.text(103, 2, f'Minimum {MIN_ROUNDS} rounds played',
+    ax.text(101, 2, f'Minimum {MIN_ROUNDS} rounds played',
            ha='right', va='bottom',
-           fontsize=8, style='italic', color='#95a5a6',
+           fontsize=8, style='italic', color='#9aa3aa',
            transform=ax.transData)
     
     # 8. Add credits
-    ax.text(103, 0.5, 'Photo by HLTV | Data by clu0ki',
+    ax.text(101, 0.5, 'Photo by HLTV | Data by clu0ki',
            ha='right', va='bottom',
-           fontsize=7, color='#95a5a6',
+           fontsize=7, color='#9aa3aa',
            transform=ax.transData)
     
     plt.tight_layout(pad=0)
