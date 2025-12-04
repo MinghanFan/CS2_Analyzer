@@ -8,7 +8,7 @@ import matplotlib.image as mpimg
 from awpy.plot.utils import game_to_pixel
 
 # ===== Configuration =====
-demo_root = Path("/Volumes/TOSHIBA EXT/last3month")  # Change to your root directory
+demo_root = Path("/Users/minghanfan/Documents/Test/test2")  # Change to your root directory
 output_dir = Path("first_blood_heatmaps")
 output_dir.mkdir(exist_ok=True)
 
@@ -29,7 +29,10 @@ print(f"Found {len(demo_files)} demos under {demo_root}")
 # ===== Global aggregators =====
 # map_name -> list of (X, Y, Z, side) tuples for first kills
 first_blood_positions = defaultdict(list)
+# Track weapons used for first kills
+first_blood_weapons = defaultdict(int)
 countknife = 0
+invalid_fk_count = 0  # Track filtered first kills
 
 for demo_path in demo_files:
     print(f"Parsing {demo_path.name}")
@@ -75,7 +78,7 @@ for demo_path in demo_files:
         print(f"[info] {demo_path.name} has no kills data")
         continue
     
-    required_kill_cols = ["attacker_X", "attacker_Y", "attacker_Z", "attacker_side", "tick", "round_num"]
+    required_kill_cols = ["attacker_X", "attacker_Y", "attacker_Z", "attacker_side", "attacker_name", "victim_name", "weapon", "tick", "round_num"]
     missing_kill = [c for c in required_kill_cols if c not in kills_df.columns]
     
     if missing_kill:
@@ -92,14 +95,37 @@ for demo_path in demo_files:
         # Sort by tick to get first kill
         round_kills = round_kills.sort_values("tick")
         
-        # Get the first kill of the round
-        first_kill = round_kills.iloc[0]
+        # Find the first VALID kill of the round
+        first_kill = None
+        for idx, kill_row in round_kills.iterrows():
+            attacker_name = str(kill_row.get("attacker_name", ""))
+            victim_name = str(kill_row.get("victim_name", ""))
+            weapon = str(kill_row.get("weapon", "")).lower()
+            
+            # Skip if attacker killed themselves
+            if attacker_name == victim_name:
+                invalid_fk_count += 1
+                continue
+            
+            # Skip if weapon is invalid (world, fall damage, etc.)
+            if weapon in ["", "world", "worldspawn", "trigger_hurt", "unknown"]:
+                invalid_fk_count += 1
+                continue
+            
+            # This is a valid first kill
+            first_kill = kill_row
+            break
+        
+        # If no valid first kill found, skip this round
+        if first_kill is None:
+            continue
         
         # Extract position and side
         x = first_kill["attacker_X"]
         y = first_kill["attacker_Y"]
         z = first_kill["attacker_Z"]
         side = str(first_kill["attacker_side"]).lower()
+        weapon = str(first_kill["weapon"]).lower()
         
         # Skip if any coordinate is NaN
         if pd.isna(x) or pd.isna(y) or pd.isna(z) or pd.isna(side):
@@ -107,6 +133,9 @@ for demo_path in demo_files:
         
         # Store the position
         first_blood_positions[map_name].append((x, y, z, side))
+        
+        # Track weapon
+        first_blood_weapons[weapon] += 1
 
 # ===== Generate heatmaps for each map =====
 print(f"\n{'='*70}")
@@ -152,13 +181,13 @@ for map_name, positions in first_blood_positions.items():
                 px = game_to_pixel(map_name, (x, y, z))[0]
                 py = game_to_pixel(map_name, (x, y, z))[1]
                 
-                # Plot as red circle with transparency
-                ax.plot(px, py, 'o', color='orange', markersize=3, alpha=0.3)
+                # Plot as red circle with transparency and no edge
+                ax.plot(px, py, 'o', color='orange', markersize=3, alpha=0.3, markeredgewidth=0)
             
             plt.title(f"First Blood Locations - {map_name.upper()} (All Sides)", 
                      fontsize=16, color='white', pad=20)
             output_file = output_dir / f"{map_name}_firstblood_all.png"
-            plt.savefig(output_file, dpi=500, bbox_inches='tight', facecolor='black')
+            plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
             plt.close()
             print(f"  Saved: {output_file}")
         
@@ -171,8 +200,8 @@ for map_name, positions in first_blood_positions.items():
                 px = game_to_pixel(map_name, (x, y, z))[0]
                 py = game_to_pixel(map_name, (x, y, z))[1]
                 
-                # Plot as blue circle with transparency
-                ax.plot(px, py, 'o', color='blue', markersize=3, alpha=0.3, markeredgewidth=0)
+                # Plot as blue circle with transparency and no edge
+                ax.plot(px, py, 'o', color='cyan', markersize=3.7, alpha=0.3, markeredgewidth=0)
             
             plt.title(f"First Blood Locations - {map_name.upper()} (CT Side)", 
                      fontsize=16, color='white', pad=20)
@@ -190,8 +219,8 @@ for map_name, positions in first_blood_positions.items():
                 px = game_to_pixel(map_name, (x, y, z))[0]
                 py = game_to_pixel(map_name, (x, y, z))[1]
                 
-                # Plot as orange circle with transparency
-                ax.plot(px, py, 'o', color='orange', markersize=3, alpha=0.3, markeredgewidth=0)
+                # Plot as orange circle with transparency and no edge
+                ax.plot(px, py, 'o', color='orange', markersize=3.7, alpha=0.3, markeredgewidth=0)
             
             plt.title(f"First Blood Locations - {map_name.upper()} (T Side)", 
                      fontsize=16, color='white', pad=20)
@@ -251,7 +280,31 @@ if summary_rows:
     print(f"Total first bloods analyzed: {total_first_bloods}")
     print(f"CT first bloods: {total_ct} ({total_ct/total_first_bloods*100:.2f}%)")
     print(f"T first bloods: {total_t} ({total_t/total_first_bloods*100:.2f}%)")
+    print(f"Invalid first kills filtered: {invalid_fk_count} (suicides, world damage)")
     print(f"Maps analyzed: {len(summary_df)}")
     print(f"\nHeatmaps saved to: {output_dir.absolute()}")
+    
+    # Print weapon statistics
+    print(f"\n{'='*70}")
+    print("FIRST BLOOD WEAPON STATISTICS")
+    print(f"{'='*70}")
+    
+    # Sort weapons by frequency
+    sorted_weapons = sorted(first_blood_weapons.items(), key=lambda x: x[1], reverse=True)
+    
+    print(f"{'Weapon':<25} {'Count':>10} {'Percentage':>12}")
+    print("-" * 50)
+    for weapon, count in sorted_weapons:
+        percentage = (count / total_first_bloods * 100) if total_first_bloods > 0 else 0
+        print(f"{weapon:<25} {count:>10} {percentage:>11.2f}%")
+    
+    # Save weapon stats to CSV
+    weapon_df = pd.DataFrame([
+        {"Weapon": weapon, "Count": count, "Percentage": round(count / total_first_bloods * 100, 2)}
+        for weapon, count in sorted_weapons
+    ])
+    weapon_csv = output_dir / "first_blood_weapons.csv"
+    weapon_df.to_csv(weapon_csv, index=False)
+    print(f"\nWeapon statistics saved to: {weapon_csv}")
 else:
     print("No data collected.")
