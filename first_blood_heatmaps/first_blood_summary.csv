@@ -1,4 +1,8 @@
 Map,Total_FirstBloods,CT_FirstBloods,T_FirstBloods,CT_Percentage,T_Percentage
-de_overpass,21,12,9,57.14,42.86
-de_inferno,20,15,5,75.0,25.0
-de_mirage,18,12,6,66.67,33.33
+de_inferno,1419,837,582,58.99,41.01
+de_nuke,1113,660,453,59.3,40.7
+de_mirage,1074,619,455,57.64,42.36
+de_dust2,1007,589,418,58.49,41.51
+de_ancient,932,522,410,56.01,43.99
+de_overpass,802,451,351,56.23,43.77
+de_train,596,339,257,56.88,43.12

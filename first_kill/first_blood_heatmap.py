@@ -8,7 +8,7 @@ import matplotlib.image as mpimg
 from awpy.plot.utils import game_to_pixel
 
 # ===== Configuration =====
-demo_root = Path("/Users/minghanfan/Documents/Test/test2")  # Change to your root directory
+demo_root = Path("/Volumes/TOSHIBA EXT/last3month")  # Change to your root directory
 output_dir = Path("first_blood_heatmaps")
 output_dir.mkdir(exist_ok=True)
 
@@ -29,10 +29,13 @@ print(f"Found {len(demo_files)} demos under {demo_root}")
 # ===== Global aggregators =====
 # map_name -> list of (X, Y, Z, side) tuples for first kills
 first_blood_positions = defaultdict(list)
+# map_name -> list of (X, Y, Z, side) tuples for first deaths
+first_death_positions = defaultdict(list)
 # Track weapons used for first kills
 first_blood_weapons = defaultdict(int)
 countknife = 0
 invalid_fk_count = 0  # Track filtered first kills
+invalid_fd_count = 0  # Track filtered first deaths
 
 for demo_path in demo_files:
     print(f"Parsing {demo_path.name}")
@@ -78,7 +81,9 @@ for demo_path in demo_files:
         print(f"[info] {demo_path.name} has no kills data")
         continue
     
-    required_kill_cols = ["attacker_X", "attacker_Y", "attacker_Z", "attacker_side", "attacker_name", "victim_name", "weapon", "tick", "round_num"]
+    required_kill_cols = ["attacker_X", "attacker_Y", "attacker_Z", "attacker_side", "attacker_name", 
+                         "victim_X", "victim_Y", "victim_Z", "victim_side", "victim_name", 
+                         "weapon", "tick", "round_num"]
     missing_kill = [c for c in required_kill_cols if c not in kills_df.columns]
     
     if missing_kill:
@@ -108,7 +113,7 @@ for demo_path in demo_files:
                 continue
             
             # Skip if weapon is invalid (world, fall damage, etc.)
-            if weapon in ["", "world", "worldspawn", "trigger_hurt", "unknown"]:
+            if weapon in ["", "world", "worldspawn", "inferno", "trigger_hurt", "unknown"]:
                 invalid_fk_count += 1
                 continue
             
@@ -120,22 +125,28 @@ for demo_path in demo_files:
         if first_kill is None:
             continue
         
-        # Extract position and side
-        x = first_kill["attacker_X"]
-        y = first_kill["attacker_Y"]
-        z = first_kill["attacker_Z"]
-        side = str(first_kill["attacker_side"]).lower()
+        # Extract ATTACKER position and side (first kill)
+        fk_x = first_kill["attacker_X"]
+        fk_y = first_kill["attacker_Y"]
+        fk_z = first_kill["attacker_Z"]
+        fk_side = str(first_kill["attacker_side"]).lower()
         weapon = str(first_kill["weapon"]).lower()
         
-        # Skip if any coordinate is NaN
-        if pd.isna(x) or pd.isna(y) or pd.isna(z) or pd.isna(side):
-            continue
+        # Extract VICTIM position and side (first death)
+        fd_x = first_kill["victim_X"]
+        fd_y = first_kill["victim_Y"]
+        fd_z = first_kill["victim_Z"]
+        fd_side = str(first_kill["victim_side"]).lower()
         
-        # Store the position
-        first_blood_positions[map_name].append((x, y, z, side))
+        # Store first kill position if valid
+        if not (pd.isna(fk_x) or pd.isna(fk_y) or pd.isna(fk_z) or pd.isna(fk_side)):
+            first_blood_positions[map_name].append((fk_x, fk_y, fk_z, fk_side))
+            # Track weapon
+            first_blood_weapons[weapon] += 1
         
-        # Track weapon
-        first_blood_weapons[weapon] += 1
+        # Store first death position if valid
+        if not (pd.isna(fd_x) or pd.isna(fd_y) or pd.isna(fd_z) or pd.isna(fd_side)):
+            first_death_positions[map_name].append((fd_x, fd_y, fd_z, fd_side))
 
 # ===== Generate heatmaps for each map =====
 print(f"\n{'='*70}")
@@ -172,19 +183,34 @@ for map_name, positions in first_blood_positions.items():
         from awpy.plot import plot
         from awpy.plot.utils import game_to_pixel
         
-        # Overall visualization
+        # Overall visualization (both first kills and first deaths)
         if len(all_positions) > 0:
             fig, ax = plot(map_name=map_name)
             
-            # Convert game coordinates to pixel coordinates
-            for x, y, z in all_positions:
-                px = game_to_pixel(map_name, (x, y, z))[0]
-                py = game_to_pixel(map_name, (x, y, z))[1]
-                
-                # Plot as red circle with transparency and no edge
-                ax.plot(px, py, 'o', color='orange', markersize=3, alpha=0.3, markeredgewidth=0)
+            # Get first death positions for this map
+            death_positions = first_death_positions.get(map_name, [])
             
-            plt.title(f"First Blood Locations - {map_name.upper()} (All Sides)", 
+            # Plot first DEATHS in magenta
+            for pos in death_positions:
+                try:
+                    x, y, z = pos[0], pos[1], pos[2]
+                    pixel_pos = game_to_pixel(map_name, (x, y, z))
+                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color="#FF9D00", markersize=3.7, alpha=0.37, markeredgewidth=0)
+                except Exception as e:
+                    print(f"  [warn] Failed to plot death position: {e}")
+                    continue
+            
+            # Plot first KILLS in orange
+            for pos in all_positions:
+                try:
+                    x, y, z = pos[0], pos[1], pos[2]
+                    pixel_pos = game_to_pixel(map_name, (x, y, z))
+                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color="#00FFFF", markersize=3.7, alpha=0.37, markeredgewidth=0)
+                except Exception as e:
+                    print(f"  [warn] Failed to plot kill position: {e}")
+                    continue
+            
+            plt.title(f"First Blood - {map_name.upper()} (Orange=Kills, Magenta=Deaths)", 
                      fontsize=16, color='white', pad=20)
             output_file = output_dir / f"{map_name}_firstblood_all.png"
             plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
@@ -195,15 +221,16 @@ for map_name, positions in first_blood_positions.items():
         if len(ct_positions) > 0:
             fig, ax = plot(map_name=map_name)
             
-            # Convert game coordinates to pixel coordinates
-            for x, y, z in ct_positions:
-                px = game_to_pixel(map_name, (x, y, z))[0]
-                py = game_to_pixel(map_name, (x, y, z))[1]
-                
-                # Plot as blue circle with transparency and no edge
-                ax.plot(px, py, 'o', color='cyan', markersize=3.7, alpha=0.3, markeredgewidth=0)
+            for pos in ct_positions:
+                try:
+                    x, y, z = pos[0], pos[1], pos[2]
+                    pixel_pos = game_to_pixel(map_name, (x, y, z))
+                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color='cyan', markersize=3.7, alpha=0.3, markeredgewidth=0)
+                except Exception as e:
+                    print(f"  [warn] Failed to plot CT position: {e}")
+                    continue
             
-            plt.title(f"First Blood Locations - {map_name.upper()} (CT Side)", 
+            plt.title(f"First Blood - {map_name.upper()} (CT Side)", 
                      fontsize=16, color='white', pad=20)
             output_file = output_dir / f"{map_name}_firstblood_ct.png"
             plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
@@ -214,15 +241,16 @@ for map_name, positions in first_blood_positions.items():
         if len(t_positions) > 0:
             fig, ax = plot(map_name=map_name)
             
-            # Convert game coordinates to pixel coordinates
-            for x, y, z in t_positions:
-                px = game_to_pixel(map_name, (x, y, z))[0]
-                py = game_to_pixel(map_name, (x, y, z))[1]
-                
-                # Plot as orange circle with transparency and no edge
-                ax.plot(px, py, 'o', color='orange', markersize=3.7, alpha=0.3, markeredgewidth=0)
+            for pos in t_positions:
+                try:
+                    x, y, z = pos[0], pos[1], pos[2]
+                    pixel_pos = game_to_pixel(map_name, (x, y, z))
+                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color='orange', markersize=3.7, alpha=0.3, markeredgewidth=0)
+                except Exception as e:
+                    print(f"  [warn] Failed to plot T position: {e}")
+                    continue
             
-            plt.title(f"First Blood Locations - {map_name.upper()} (T Side)", 
+            plt.title(f"First Blood - {map_name.upper()} (T Side)", 
                      fontsize=16, color='white', pad=20)
             output_file = output_dir / f"{map_name}_firstblood_t.png"
             plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
