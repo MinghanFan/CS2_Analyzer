@@ -9,7 +9,7 @@ from awpy.plot.utils import game_to_pixel
 
 # ===== Configuration =====
 demo_root = Path("/Volumes/TOSHIBA EXT/last3month")  # Change to your root directory
-output_dir = Path("first_blood_heatmaps")
+output_dir = Path("first_blood_heatmaps2")
 output_dir.mkdir(exist_ok=True)
 
 # ===== Valid weapons for knife round detection =====
@@ -110,12 +110,12 @@ for demo_path in demo_files:
             # Skip if attacker killed themselves
             if attacker_name == victim_name:
                 invalid_fk_count += 1
-                continue
+                continue #break
             
             # Skip if weapon is invalid (world, fall damage, etc.)
-            if weapon in ["", "world", "worldspawn", "inferno", "trigger_hurt", "unknown"]:
+            if weapon in ["", "world", "worldspawn", "inferno", "trigger_hurt", "unknown", " "]:
                 invalid_fk_count += 1
-                continue
+                continue #break
             
             # This is a valid first kill
             first_kill = kill_row
@@ -190,72 +190,72 @@ for map_name, positions in first_blood_positions.items():
             # Get first death positions for this map
             death_positions = first_death_positions.get(map_name, [])
             
-            # Plot first DEATHS in magenta
-            for pos in death_positions:
-                try:
-                    x, y, z = pos[0], pos[1], pos[2]
-                    pixel_pos = game_to_pixel(map_name, (x, y, z))
-                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color="#FF9D00", markersize=3.7, alpha=0.37, markeredgewidth=0)
-                except Exception as e:
-                    print(f"  [warn] Failed to plot death position: {e}")
-                    continue
+            # Plot first DEATHS in red
+            # for pos in death_positions:
+            #     try:
+            #         x, y, z = pos[0], pos[1], pos[2]
+            #         pixel_pos = game_to_pixel(map_name, (x, y, z))
+            #         ax.plot(pixel_pos[0], pixel_pos[1], 'o', color="#FF0800", markersize=3.1, alpha=0.3, markeredgewidth=0)
+            #     except Exception as e:
+            #         print(f"  [warn] Failed to plot death position: {e}")
+            #         continue
             
             # Plot first KILLS in orange
             for pos in all_positions:
                 try:
                     x, y, z = pos[0], pos[1], pos[2]
                     pixel_pos = game_to_pixel(map_name, (x, y, z))
-                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color="#00FFFF", markersize=3.7, alpha=0.37, markeredgewidth=0)
+                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color="#FF9D00", markersize=3.1, alpha=0.3, markeredgewidth=0)
                 except Exception as e:
                     print(f"  [warn] Failed to plot kill position: {e}")
                     continue
             
-            plt.title(f"First Blood - {map_name.upper()} (Orange=Kills, Magenta=Deaths)", 
-                     fontsize=16, color='white', pad=20)
+            # plt.title(f"First Blood - {map_name.upper()} (Orange=Kills, Magenta=Deaths)", 
+            #          fontsize=16, color='white', pad=20)
             output_file = output_dir / f"{map_name}_firstblood_all.png"
             plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
             plt.close()
             print(f"  Saved: {output_file}")
         
         # CT-side visualization
-        if len(ct_positions) > 0:
-            fig, ax = plot(map_name=map_name)
+        # if len(ct_positions) > 0:
+        #     fig, ax = plot(map_name=map_name)
             
-            for pos in ct_positions:
-                try:
-                    x, y, z = pos[0], pos[1], pos[2]
-                    pixel_pos = game_to_pixel(map_name, (x, y, z))
-                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color='cyan', markersize=3.7, alpha=0.3, markeredgewidth=0)
-                except Exception as e:
-                    print(f"  [warn] Failed to plot CT position: {e}")
-                    continue
+        #     for pos in ct_positions:
+        #         try:
+        #             x, y, z = pos[0], pos[1], pos[2]
+        #             pixel_pos = game_to_pixel(map_name, (x, y, z))
+        #             ax.plot(pixel_pos[0], pixel_pos[1], 'o', color='blue', markersize=3.1, alpha=0.3, markeredgewidth=0)
+        #         except Exception as e:
+        #             print(f"  [warn] Failed to plot CT position: {e}")
+        #             continue
             
-            plt.title(f"First Blood - {map_name.upper()} (CT Side)", 
-                     fontsize=16, color='white', pad=20)
-            output_file = output_dir / f"{map_name}_firstblood_ct.png"
-            plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
-            plt.close()
-            print(f"  Saved: {output_file}")
+        #     # plt.title(f"First Blood - {map_name.upper()} (CT Side)", 
+        #     #          fontsize=16, color='white', pad=20)
+        #     output_file = output_dir / f"{map_name}_firstblood_ct.png"
+        #     plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
+        #     plt.close()
+        #     print(f"  Saved: {output_file}")
         
         # T-side visualization
-        if len(t_positions) > 0:
-            fig, ax = plot(map_name=map_name)
+        # if len(t_positions) > 0:
+        #     fig, ax = plot(map_name=map_name)
             
-            for pos in t_positions:
-                try:
-                    x, y, z = pos[0], pos[1], pos[2]
-                    pixel_pos = game_to_pixel(map_name, (x, y, z))
-                    ax.plot(pixel_pos[0], pixel_pos[1], 'o', color='orange', markersize=3.7, alpha=0.3, markeredgewidth=0)
-                except Exception as e:
-                    print(f"  [warn] Failed to plot T position: {e}")
-                    continue
+        #     for pos in t_positions:
+        #         try:
+        #             x, y, z = pos[0], pos[1], pos[2]
+        #             pixel_pos = game_to_pixel(map_name, (x, y, z))
+        #             ax.plot(pixel_pos[0], pixel_pos[1], 'o', color='red', markersize=3.1, alpha=0.3, markeredgewidth=0)
+        #         except Exception as e:
+        #             print(f"  [warn] Failed to plot T position: {e}")
+        #             continue
             
-            plt.title(f"First Blood - {map_name.upper()} (T Side)", 
-                     fontsize=16, color='white', pad=20)
-            output_file = output_dir / f"{map_name}_firstblood_t.png"
-            plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
-            plt.close()
-            print(f"  Saved: {output_file}")
+        #     # plt.title(f"First Blood - {map_name.upper()} (T Side)", 
+        #     #          fontsize=16, color='white', pad=20)
+        #     output_file = output_dir / f"{map_name}_firstblood_t.png"
+        #     plt.savefig(output_file, dpi=300, bbox_inches='tight', facecolor='black')
+        #     plt.close()
+        #     print(f"  Saved: {output_file}")
         
     except Exception as e:
         print(f"[ERROR] Failed to create heatmap for {map_name}: {e}")
