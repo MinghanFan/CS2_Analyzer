@@ -28,7 +28,7 @@ ax.text(50, 89.6, 'Who Converts Performance to Wins?',
 
 # Bar chart section
 players = ['m0NESY', 'NiKo', 'kyousuke']
-avg_coefs = [1.035, 0.116, -0.490]
+avg_coefs = [1.121, 0.156, -0.507]
 colors = ['#8bd0a7', '#f39c12', '#e17c7c']  # Green, yellow, red
 edge_colors = ['#8ab7a0', '#d68910', '#c47d7d']
 

@@ -45,7 +45,7 @@ def invert_placement(placement_value):
     if placement_value is None or placement_value == 0:
         return None
     try:
-        return 1.0/(placement_value**1.2)
+        return 1.0 / placement_value
     except Exception:
         return None
 

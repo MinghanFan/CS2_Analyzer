@@ -1,14 +1,14 @@
 Model,Term,Coefficient,Interpretation
-Additive,NiKo,0.05442611806122333,↑ (Higher rating → Better placement)
-Additive,kyousuke,-1.0852565192078012,↓ (Higher rating → Worse placement)
-Additive,intercept,1.4765427254201609,
-Multiplicative,product,-0.24974648712357966,
-Multiplicative,intercept,0.5916259895318511,
-Full_Interactions,NiKo,-2.843381800680325,↓ (Higher rating → Worse placement)
-Full_Interactions,kyousuke,-3.6273359612033427,↓ (Higher rating → Worse placement)
-Full_Interactions,NiKo*kyousuke,2.3555281331469846,↑ (Higher rating → Better placement)
-Full_Interactions,intercept,4.607300975181643,
-Simplified_Interactions,NiKo,-2.843381800680325,↓ (Higher rating → Worse placement)
-Simplified_Interactions,kyousuke,-3.6273359612033427,↓ (Higher rating → Worse placement)
-Simplified_Interactions,NiKo*kyousuke,2.3555281331469846,↑ (Higher rating → Better placement)
-Simplified_Interactions,intercept,4.607300975181643,
+Additive,NiKo,0.09503390679202267,↑ (Higher rating → Better placement)
+Additive,kyousuke,-1.159154161102919,↓ (Higher rating → Worse placement)
+Additive,intercept,1.5760215078271087,
+Multiplicative,product,-0.24564741734429313,
+Multiplicative,intercept,0.6444135472694055,
+Full_Interactions,NiKo,-3.020959704811455,↓ (Higher rating → Worse placement)
+Full_Interactions,kyousuke,-3.892635303940914,↓ (Higher rating → Worse placement)
+Full_Interactions,NiKo*kyousuke,2.5328837592609594,↑ (Higher rating → Better placement)
+Full_Interactions,intercept,4.942505063427379,
+Simplified_Interactions,NiKo,-3.020959704811455,↓ (Higher rating → Worse placement)
+Simplified_Interactions,kyousuke,-3.892635303940914,↓ (Higher rating → Worse placement)
+Simplified_Interactions,NiKo*kyousuke,2.5328837592609594,↑ (Higher rating → Better placement)
+Simplified_Interactions,intercept,4.942505063427379,
