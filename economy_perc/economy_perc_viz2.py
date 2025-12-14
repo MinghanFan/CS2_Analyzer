@@ -195,7 +195,7 @@ for player, color in players_to_plot.items():
 # Formatting
 ax.set_xlabel("Event", fontsize=12, fontweight='bold')
 ax.set_ylabel("Avg % of Team Weapon Value", fontsize=12, fontweight='bold')
-ax.set_title("Player Weapon Economy Percentage Timeline (Smooth)", fontsize=14, fontweight='bold')
+ax.set_title("Falcons - Player Weapon Economy Percentage Timeline", fontsize=14, fontweight='bold')
 ax.legend(loc='best', fontsize=10)
 ax.grid(True, alpha=0.3)
 # ax.set_ylim(23, 30)

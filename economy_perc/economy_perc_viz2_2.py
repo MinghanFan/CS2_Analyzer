@@ -6,47 +6,46 @@ import numpy as np
 
 # === Configuration ===
 input_csv = "weapon_economy_percentage.csv"
-output_plot = "weapon_economy_timeline_smooth_closer.png"
+output_plot = "weapon_economy_timeline_smooth_awper.png"
 
 # === MANUAL CONFIGURATION: Define which players to plot and their colors ===
-# players_to_plot = {
-#     "torzsi": "#ffdcdc",      # Blue
-#     "molodoy": "#f5cece",        # Orange
-#     "m0NESY": "#37b41d",
-#     "910": "#faefd1",          # Green
-#     "sh1ro": "#ddfde3",        # Purple
-#     "w0nderful": "#fff7d6",    # Brown
-#     "broky": "#FEDCDC",         # Pink
-#     "ZywOo": "#f6fbcc",        # Gray
-#     # "NiKo": "#1f77b4",
-#     # "kyousuke": "#ff7f0e",
-#     # "TeSeS": "#d7d122",
-#     # "kyxsan": "#bd4bc1",
-#     # "Magisk": "#6ebfcf",
-#     # "molodoy": "#e377c2",
-# }
-
 players_to_plot = {
-    "Spinx": "#ffdcdc",      # Blue
-    "KSCERATO": "#f5cece",        # Orange
-    "NiKo": "#37b41d",
-    "mzinho": "#faefd1",          # Green
-    "tN1R": "#ddfde3",        # Purple
-    "iM": "#fff7d6",    # Brown
-    "Twistzz": "#FEDCDC",         # Pink
-    "ropz": "#f6fbcc",        # Gray
-    "frozen": "#ffd3d3",
+    "torzsi": "#ffdcdc",      # Blue
+    "molodoy": "#cfcef5",        # Orange
+    "m0NESY": "#37b41d",
+    "910": "#faefd0",          # Green
+    "sh1ro": "#d9fddf",        # Purple
+    "w0nderful": "#fbffc7",    # Brown
+    "broky": "#FFD3D3",         # Pink
+    "ZywOo": "#f2fcbf",        # Gray
+    # "NiKo": "#1f77b4",
+    # "kyousuke": "#ff7f0e",
+    # "TeSeS": "#d7d122",
+    # "kyxsan": "#bd4bc1",
+    # "Magisk": "#6ebfcf",
+    # "molodoy": "#e377c2",
 }
 
 # players_to_plot = {
+#     "Spinx": "#ffdcdc",      # Blue
+#     "KSCERATO": "#cfcef5",        # Orange
+#     "NiKo": "#1f77b4",
+#     "mzinho": "#faefd0",          # Green
+#     "tN1R": "#d9fddf",        # Purple
+#     "iM": "#fbffc7",    # Brown
+#     "Twistzz": "#FEDCDC",         # Pink
+#     "ropz": "#f2fcbf",        # Gray
+#     "frozen": "#FFD3D3",
+# }
+
+# players_to_plot = {
 #     "xertioN": "#ffdcdc",
-#     "YEKINDAR": "#f5cece",       
-#     "kyousuke": "#ff7f0e",
-#     "Senzu": "#faefd1",         
-#     "controlez": "#feefcf", 
-#     "donk": "#ddfde3",       
-#     "makazze": "#fff7d6",   
-#     "flameZ": "#f6fbcc",  
+#     "YEKINDAR": "#cfcef5",       
+#     "kyousuke": "#ff7f0e",       
+#     "controlez": "#faefd0", 
+#     "donk": "#d9fddf",       
+#     "makazze": "#fbffc7",   
+#     "flameZ": "#f2fcbf",  
 # }
 
 player_color_segments = {
