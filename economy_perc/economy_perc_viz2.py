@@ -6,7 +6,7 @@ import numpy as np
 
 # === Configuration ===
 input_csv = "weapon_economy_percentage.csv"
-output_plot = "weapon_economy_timeline_smooth3.png"
+output_plot = "weapon_economy_timeline_smooth_falc.png"
 
 # === MANUAL CONFIGURATION: Define which players to plot and their colors ===
 players_to_plot = {
@@ -18,11 +18,11 @@ players_to_plot = {
     # "w0nderful": "#fbfcd8",    # Brown
     # "broky": "#FEDCDC",         # Pink
     # "ZywOo": "#fafad8",        # Gray
-    # "NiKo": "#1f77b4",
-    # "kyousuke": "#ff7f0e",
-    # "TeSeS": "#d7d122",
-    # "kyxsan": "#bd4bc1",
-    # "Magisk": "#6ebfcf",
+    "NiKo": "#1f77b4",
+    "kyousuke": "#ff7f0e",
+    "TeSeS": "#d7d122",
+    "kyxsan": "#bd4bc1",
+    "Magisk": "#6ebfcf",
     # "molodoy": "#e377c2",
 }
 
@@ -66,7 +66,8 @@ event_order = [
     "FISSURE_Playground_2",
     "ESL_Pro_League_Season_22",
     "IEM_Chengdu_2025",
-    "BLAST_Rivals_2025_Season_2"
+    "BLAST_Rivals_2025_Season_2",
+    "Starladder_Budapest_Major_2025"
 ]
 
 # === Load data ===

@@ -1,7 +1,7 @@
 Player,Event,RoundsPlayed,AvgWeaponValue,AvgPercentageOfTeam
 1eeR,BLAST.tv_Austin_Major_2025,101,1982.67,17.73
 1eeR,overall,101,1982.67,17.73
-910, FISSURE_Playground_2,460,3446.41,25.5
+910," FISSURE_Playground_2",460,3446.41,25.5
 910,BLAST.tv_Austin_Major_2025,313,3308.63,24.69
 910,BLAST_Bounty_2025_Season_2_Finals,168,3470.54,24.77
 910,BLAST_Open_Lisbon_2025,209,3346.17,25.11
@@ -39,13 +39,13 @@ Aleksib,IEM_Katowice_2025,198,2026.77,16.64
 Aleksib,IEM_Melbourne_2025,251,1953.59,16.95
 Aleksib,PGL_Astana_2025,245,2039.39,17.49
 Aleksib,overall,2345,2005.48,16.8
-Alkaren, FISSURE_Playground_2,215,3470.7,25.2
+Alkaren," FISSURE_Playground_2",215,3470.7,25.2
 Alkaren,Esports_World_Cup_2025,108,3290.74,25.32
 Alkaren,IEM_Chengdu_2025,195,3295.13,24.85
 Alkaren,overall,518,3367.08,25.09
 Anfield Poker,PGL_Cluj-Napoca_2025,24,1564.58,14.63
 Anfield Poker,overall,24,1564.58,14.63
-Attacker, FISSURE_Playground_2,202,2215.59,19.03
+Attacker," FISSURE_Playground_2",202,2215.59,19.03
 Attacker,BLAST_Rivals_2025_Season_2,121,2003.31,18.81
 Attacker,ESL_Pro_League_Season_21_2025,178,2148.6,18.28
 Attacker,Esports_World_Cup_2025,102,2079.41,18.85
@@ -70,7 +70,7 @@ Brollan,IEM_Katowice_2025,86,1884.88,17.38
 Brollan,IEM_Melbourne_2025,187,2147.06,17.76
 Brollan,PGL_Cluj-Napoca_2025,463,2119.87,17.08
 Brollan,overall,3689,2108.59,17.12
-C4LLM3SU3, FISSURE_Playground_2,140,2400.71,19.61
+C4LLM3SU3," FISSURE_Playground_2",140,2400.71,19.61
 C4LLM3SU3,BLAST.tv_Austin_Major_2025,107,2003.74,18.67
 C4LLM3SU3,IEM_Chengdu_2025,141,2187.59,19.49
 C4LLM3SU3,IEM_Dallas_2025,83,2050.0,19.89
@@ -104,12 +104,12 @@ EliGE,IEM_Melbourne_2025,191,2419.37,19.37
 EliGE,PGL_Bucharest_2025,380,2284.87,19.44
 EliGE,PGL_Cluj-Napoca_2025,323,2306.35,19.39
 EliGE,overall,2004,2299.48,19.55
-EmiliaQAQ, FISSURE_Playground_2,140,2277.5,17.87
+EmiliaQAQ," FISSURE_Playground_2",140,2277.5,17.87
 EmiliaQAQ,BLAST.tv_Austin_Major_2025,107,2047.66,18.58
 EmiliaQAQ,IEM_Chengdu_2025,141,2117.02,18.36
 EmiliaQAQ,IEM_Dallas_2025,83,1986.75,18.09
 EmiliaQAQ,overall,471,2126.01,18.22
-Ex3rcice, FISSURE_Playground_2,251,2419.92,19.82
+Ex3rcice," FISSURE_Playground_2",251,2419.92,19.82
 Ex3rcice,BLAST.tv_Austin_Major_2025,113,2405.31,20.45
 Ex3rcice,ESL_Pro_League_Season_21_2025,240,2114.17,18.62
 Ex3rcice,ESL_Pro_League_Season_22,307,2320.03,19.48
@@ -122,7 +122,7 @@ Ex3rcice,IEM_Melbourne_2025,125,2210.8,18.85
 Ex3rcice,PGL_Bucharest_2025,231,2158.66,19.67
 Ex3rcice,PGL_Cluj-Napoca_2025,270,2251.11,19.66
 Ex3rcice,overall,2319,2266.6,19.64
-FL1T, FISSURE_Playground_2,251,2319.72,20.68
+FL1T," FISSURE_Playground_2",251,2319.72,20.68
 FL1T,BLAST.tv_Austin_Major_2025,184,2150.27,21.55
 FL1T,BLAST_Bounty_2025_Season_2_Finals,39,2115.38,20.19
 FL1T,BLAST_Open_Lisbon_2025,252,2393.06,20.36
@@ -142,7 +142,7 @@ FL4MUS,PGL_Astana_2025,316,2182.75,18.75
 FL4MUS,PGL_Bucharest_2025,256,2110.94,17.79
 FL4MUS,PGL_Cluj-Napoca_2025,273,2269.05,19.59
 FL4MUS,overall,1554,2218.08,19.01
-FalleN, FISSURE_Playground_2,409,2286.06,17.22
+FalleN," FISSURE_Playground_2",409,2286.06,17.22
 FalleN,BLAST.tv_Austin_Major_2025,146,2040.07,16.78
 FalleN,BLAST_Open_Lisbon_2025,128,3151.17,23.29
 FalleN,BLAST_Open_London _2025_Finals,36,1773.61,16.24
@@ -158,7 +158,7 @@ FalleN,PGL_Bucharest_2025,182,2593.13,23.13
 FalleN,overall,2917,2301.01,18.32
 Flierax,ESL_Pro_League_Season_22,176,3128.12,24.65
 Flierax,overall,176,3128.12,24.65
-Graviti, FISSURE_Playground_2,251,2169.92,17.36
+Graviti," FISSURE_Playground_2",251,2169.92,17.36
 Graviti,BLAST.tv_Austin_Major_2025,113,1997.35,17.3
 Graviti,ESL_Pro_League_Season_21_2025,240,2047.08,18.8
 Graviti,ESL_Pro_League_Season_22,307,2138.93,18.0
@@ -176,7 +176,7 @@ Grim,IEM_Melbourne_2025,167,2415.87,21.62
 Grim,PGL_Bucharest_2025,362,2437.85,20.57
 Grim,PGL_Cluj-Napoca_2025,168,2325.89,20.49
 Grim,overall,859,2392.67,20.54
-HeavyGod, FISSURE_Playground_2,239,2356.9,19.3
+HeavyGod," FISSURE_Playground_2",239,2356.9,19.3
 HeavyGod,BLAST.tv_Austin_Major_2025,206,2335.92,19.52
 HeavyGod,BLAST_Bounty_2025_Season_1_Finals,100,2119.0,18.29
 HeavyGod,BLAST_Open_Lisbon_2025,215,2169.07,19.44
@@ -194,7 +194,7 @@ HeavyGod,overall,2834,2229.18,19.24
 HexT,BLAST_Open_London _2025_Finals,61,1937.7,18.16
 HexT,IEM_Dallas_2025,71,1771.83,19.5
 HexT,overall,132,1848.48,18.88
-HooXi, FISSURE_Playground_2,295,2195.93,16.47
+HooXi," FISSURE_Playground_2",295,2195.93,16.47
 HooXi,BLAST_Bounty_2025_Season_2_Finals,38,1555.26,14.09
 HooXi,ESL_Pro_League_Season_22,142,1924.65,16.46
 HooXi,Esports_World_Cup_2025,64,1971.09,17.11
@@ -204,7 +204,7 @@ HooXi,PGL_Astana_2025,432,1935.19,16.08
 HooXi,overall,1283,2000.78,16.46
 ICON,PGL_Bucharest_2025,24,2241.67,19.88
 ICON,overall,24,2241.67,19.88
-ICY, FISSURE_Playground_2,251,3111.95,23.72
+ICY," FISSURE_Playground_2",251,3111.95,23.72
 ICY,BLAST.tv_Austin_Major_2025,184,2790.22,23.86
 ICY,BLAST_Bounty_2025_Season_2_Finals,39,2837.18,24.39
 ICY,BLAST_Open_Lisbon_2025,252,3296.03,24.92
@@ -232,13 +232,13 @@ JT,IEM_Melbourne_2025,167,2088.32,17.71
 JT,PGL_Bucharest_2025,362,2225.97,18.34
 JT,PGL_Cluj-Napoca_2025,168,2151.79,17.87
 JT,overall,859,2167.81,18.03
-JamYoung, FISSURE_Playground_2,202,2291.34,19.81
+JamYoung," FISSURE_Playground_2",202,2291.34,19.81
 JamYoung,BLAST_Rivals_2025_Season_2,121,2107.85,20.11
 JamYoung,ESL_Pro_League_Season_21_2025,178,2228.93,18.94
 JamYoung,Esports_World_Cup_2025,102,2076.96,19.12
 JamYoung,IEM_Chengdu_2025,80,1915.0,18.45
 JamYoung,overall,683,2166.47,19.38
-Jee, FISSURE_Playground_2,202,3131.19,24.66
+Jee," FISSURE_Playground_2",202,3131.19,24.66
 Jee,BLAST_Rivals_2025_Season_2,121,2888.02,24.08
 Jee,ESL_Pro_League_Season_21_2025,178,3332.3,25.9
 Jee,Esports_World_Cup_2025,102,2843.14,23.14
@@ -261,7 +261,7 @@ Jimpphat,IEM_Katowice_2025,86,1955.23,17.97
 Jimpphat,IEM_Melbourne_2025,187,2295.99,18.77
 Jimpphat,PGL_Cluj-Napoca_2025,463,2282.07,18.46
 Jimpphat,overall,3689,2289.17,18.81
-KSCERATO, FISSURE_Playground_2,409,2450.73,18.77
+KSCERATO," FISSURE_Playground_2",409,2450.73,18.77
 KSCERATO,BLAST.tv_Austin_Major_2025,146,2259.59,19.04
 KSCERATO,BLAST_Open_Lisbon_2025,128,2324.61,19.61
 KSCERATO,BLAST_Open_London _2025_Finals,36,1954.17,18.1
@@ -284,7 +284,7 @@ Krimbo,IEM_Melbourne_2025,115,2291.3,20.68
 Krimbo,PGL_Astana_2025,188,2253.46,21.04
 Krimbo,PGL_Cluj-Napoca_2025,238,2261.97,21.13
 Krimbo,overall,649,2262.25,21.08
-Kursy, FISSURE_Playground_2,230,2928.7,23.41
+Kursy," FISSURE_Playground_2",230,2928.7,23.41
 Kursy,Esports_World_Cup_2025,36,2170.83,22.22
 Kursy,IEM_Cologne_2025,128,3295.7,25.54
 Kursy,overall,394,2978.68,23.99
@@ -294,7 +294,7 @@ L take L,PGL_Bucharest_2025,24,2227.08,18.92
 L take L,overall,24,2227.08,18.92
 L1haNg,PGL_Bucharest_2025,147,2113.95,19.63
 L1haNg,overall,147,2113.95,19.63
-LNZ, FISSURE_Playground_2,215,2249.53,17.62
+LNZ," FISSURE_Playground_2",215,2249.53,17.62
 LNZ,BLAST_Bounty_2025_Season_1_Finals,40,1943.75,17.22
 LNZ,Esports_World_Cup_2025,108,2046.76,16.27
 LNZ,IEM_Chengdu_2025,195,2126.41,18.14
@@ -314,7 +314,7 @@ Lucaozy,IEM_Melbourne_2025,168,2182.74,19.86
 Lucaozy,PGL_Astana_2025,315,2286.51,19.98
 Lucaozy,PGL_Cluj-Napoca_2025,220,2308.41,19.5
 Lucaozy,overall,869,2262.77,19.98
-Lucky, FISSURE_Playground_2,251,2351.2,18.9
+Lucky," FISSURE_Playground_2",251,2351.2,18.9
 Lucky,BLAST.tv_Austin_Major_2025,113,2305.31,19.69
 Lucky,ESL_Pro_League_Season_21_2025,240,2135.21,19.36
 Lucky,ESL_Pro_League_Season_22,307,2311.24,19.12
@@ -327,7 +327,7 @@ Lucky,IEM_Melbourne_2025,125,2282.8,19.97
 Lucky,PGL_Bucharest_2025,207,2237.68,19.83
 Lucky,PGL_Cluj-Napoca_2025,270,2273.52,19.39
 Lucky,overall,2295,2256.78,19.27
-MAJ3R, FISSURE_Playground_2,196,2260.46,16.8
+MAJ3R," FISSURE_Playground_2",196,2260.46,16.8
 MAJ3R,BLAST.tv_Austin_Major_2025,121,1952.07,16.74
 MAJ3R,BLAST_Bounty_2025_Season_1_Finals,201,2121.14,17.36
 MAJ3R,BLAST_Bounty_2025_Season_2_Finals,53,2113.21,16.11
@@ -342,7 +342,7 @@ MAJ3R,PGL_Astana_2025,465,2123.23,17.21
 MAJ3R,PGL_Bucharest_2025,313,2141.69,17.06
 MAJ3R,PGL_Cluj-Napoca_2025,267,2035.77,17.18
 MAJ3R,overall,3294,2125.68,17.08
-MATYS, FISSURE_Playground_2,239,2265.69,17.75
+MATYS," FISSURE_Playground_2",239,2265.69,17.75
 MATYS,BLAST_Open_London _2025_Finals,189,2291.27,18.02
 MATYS,ESL_Pro_League_Season_22,175,2105.71,17.94
 MATYS,Esports_World_Cup_2025,42,1930.95,16.9
@@ -353,7 +353,7 @@ MUTiRiS,ESL_Pro_League_Season_21_2025,188,2119.95,19.23
 MUTiRiS,IEM_Melbourne_2025,107,2268.22,18.49
 MUTiRiS,PGL_Cluj-Napoca_2025,291,2211.51,19.24
 MUTiRiS,overall,586,2192.49,19.1
-Magisk, FISSURE_Playground_2,295,2404.75,19.08
+Magisk," FISSURE_Playground_2",295,2404.75,19.08
 Magisk,BLAST_Open_Lisbon_2025,196,2476.28,19.44
 Magisk,BLAST_Rivals_2025_Season_1,266,2227.26,19.14
 Magisk,ESL_Pro_League_Season_21_2025,335,2252.24,18.83
@@ -367,7 +367,7 @@ Magisk,PGL_Cluj-Napoca_2025,427,2223.54,19.13
 Magisk,overall,3051,2268.88,19.14
 Magnojez,BLAST_Bounty_2025_Season_1_Finals,31,2069.35,19.42
 Magnojez,overall,31,2069.35,19.42
-Maka, FISSURE_Playground_2,251,3168.13,24.2
+Maka," FISSURE_Playground_2",251,3168.13,24.2
 Maka,BLAST.tv_Austin_Major_2025,113,2757.52,22.81
 Maka,ESL_Pro_League_Season_21_2025,240,2616.88,22.94
 Maka,ESL_Pro_League_Season_22,307,3055.7,23.53
@@ -382,7 +382,7 @@ Maka,PGL_Cluj-Napoca_2025,270,2934.07,23.69
 Maka,overall,2295,2932.75,23.58
 MartinezSa,ESL_Pro_League_Season_22,185,3060.81,24.67
 MartinezSa,overall,185,3060.81,24.67
-Mercury, FISSURE_Playground_2,202,2094.8,17.48
+Mercury," FISSURE_Playground_2",202,2094.8,17.48
 Mercury,BLAST_Rivals_2025_Season_2,121,1980.99,17.87
 Mercury,ESL_Pro_League_Season_21_2025,178,2175.84,17.75
 Mercury,Esports_World_Cup_2025,102,2120.1,19.42
@@ -390,13 +390,13 @@ Mercury,IEM_Chengdu_2025,80,1938.12,18.5
 Mercury,overall,683,2081.19,18.03
 Mito,PGL_Bucharest_2025,24,2081.25,16.67
 Mito,overall,24,2081.25,16.67
-Moseyuh, FISSURE_Playground_2,202,2252.23,19.02
+Moseyuh," FISSURE_Playground_2",202,2252.23,19.02
 Moseyuh,BLAST_Rivals_2025_Season_2,121,2038.43,19.13
 Moseyuh,ESL_Pro_League_Season_21_2025,178,2288.76,19.13
 Moseyuh,Esports_World_Cup_2025,102,2161.76,19.47
 Moseyuh,IEM_Chengdu_2025,80,2077.5,20.94
 Moseyuh,overall,683,2189.9,19.36
-NAF, FISSURE_Playground_2,346,2269.36,18.44
+NAF," FISSURE_Playground_2",346,2269.36,18.44
 NAF,BLAST.tv_Austin_Major_2025,117,2202.14,17.5
 NAF,BLAST_Bounty_2025_Season_2_Finals,64,2560.16,18.87
 NAF,BLAST_Open_Lisbon_2025,140,2076.43,18.64
@@ -408,7 +408,7 @@ NAF,IEM_Katowice_2025,152,2180.92,18.67
 NAF,IEM_Melbourne_2025,269,2040.15,17.81
 NAF,PGL_Bucharest_2025,130,2196.92,18.29
 NAF,overall,1803,2177.26,18.47
-NertZ, FISSURE_Playground_2,346,2363.01,19.34
+NertZ," FISSURE_Playground_2",346,2363.01,19.34
 NertZ,BLAST.tv_Austin_Major_2025,117,2361.11,19.01
 NertZ,BLAST_Bounty_2025_Season_2_Finals,64,2535.16,19.52
 NertZ,BLAST_Open_Lisbon_2025,140,2279.29,20.92
@@ -420,7 +420,7 @@ NertZ,IEM_Katowice_2025,152,2248.68,19.88
 NertZ,IEM_Melbourne_2025,269,2320.63,20.71
 NertZ,PGL_Bucharest_2025,130,2249.62,19.21
 NertZ,overall,1803,2296.56,19.75
-NiKo, FISSURE_Playground_2,202,2562.38,19.91
+NiKo," FISSURE_Playground_2",202,2562.38,19.91
 NiKo,BLAST_Open_Lisbon_2025,196,2581.12,20.33
 NiKo,BLAST_Rivals_2025_Season_1,266,2354.32,20.64
 NiKo,BLAST_Rivals_2025_Season_2,253,2475.49,20.27
@@ -434,8 +434,8 @@ NiKo,IEM_Katowice_2025,104,2138.46,20.67
 NiKo,IEM_Melbourne_2025,354,2432.91,20.8
 NiKo,PGL_Bucharest_2025,422,2361.49,20.59
 NiKo,PGL_Cluj-Napoca_2025,427,2364.99,20.99
-NiKo,overall,3741,2390.55,20.45
-PR, FISSURE_Playground_2,230,2369.13,20.13
+NiKo,Starladder_Budapest_Major_2025,228,2390.55,20.63
+PR," FISSURE_Playground_2",230,2369.13,20.13
 PR,ESL_Pro_League_Season_21_2025,299,2283.78,19.48
 PR,ESL_Pro_League_Season_22,135,2175.56,20.31
 PR,Esports_World_Cup_2025,36,1880.56,21.55
@@ -446,14 +446,14 @@ PR,IEM_Melbourne_2025,235,2199.36,19.02
 PR,PGL_Astana_2025,153,2173.2,19.79
 PR,PGL_Bucharest_2025,252,2242.86,19.16
 PR,overall,1959,2239.23,19.63
-Perfecto, FISSURE_Playground_2,251,2223.11,18.73
+Perfecto," FISSURE_Playground_2",251,2223.11,18.73
 Perfecto,BLAST_Bounty_2025_Season_2_Finals,39,2094.87,20.0
 Perfecto,Esports_World_Cup_2025,59,2132.2,18.36
 Perfecto,IEM_Chengdu_2025,194,2053.61,17.56
 Perfecto,overall,543,2143.46,18.36
 Prism,PGL_Bucharest_2025,213,2068.08,18.21
 Prism,overall,213,2068.08,18.21
-REZ, FISSURE_Playground_2,230,2405.87,20.21
+REZ," FISSURE_Playground_2",230,2405.87,20.21
 REZ,ESL_Pro_League_Season_21_2025,299,2277.09,19.14
 REZ,ESL_Pro_League_Season_22,135,2097.78,18.75
 REZ,Esports_World_Cup_2025,36,1813.89,18.3
@@ -466,7 +466,7 @@ REZ,PGL_Bucharest_2025,252,2273.61,19.34
 REZ,overall,1959,2271.47,19.77
 SOMEBODY,PGL_Bucharest_2025,147,2177.55,20.25
 SOMEBODY,overall,147,2177.55,20.25
-Senzu, FISSURE_Playground_2,460,2540.43,20.51
+Senzu," FISSURE_Playground_2",460,2540.43,20.51
 Senzu,BLAST.tv_Austin_Major_2025,313,2600.0,21.72
 Senzu,BLAST_Bounty_2025_Season_2_Finals,168,2672.02,21.05
 Senzu,BLAST_Open_Lisbon_2025,209,2544.02,20.58
@@ -512,7 +512,7 @@ Spinx,IEM_Dallas_2025,240,2375.83,19.55
 Spinx,IEM_Melbourne_2025,187,2376.2,20.08
 Spinx,PGL_Cluj-Napoca_2025,463,2403.24,20.27
 Spinx,overall,3603,2363.29,19.72
-Staehr, FISSURE_Playground_2,295,2444.75,19.26
+Staehr," FISSURE_Playground_2",295,2444.75,19.26
 Staehr,BLAST_Bounty_2025_Season_2_Finals,38,2050.0,19.11
 Staehr,BLAST_Open_Lisbon_2025,75,1834.67,18.92
 Staehr,ESL_Pro_League_Season_22,142,2169.37,19.71
@@ -524,14 +524,14 @@ Staehr,PGL_Astana_2025,432,2269.21,19.73
 Staehr,PGL_Bucharest_2025,287,2214.63,19.0
 Staehr,PGL_Cluj-Napoca_2025,512,2284.86,18.48
 Staehr,overall,2300,2221.8,19.03
-Starry, FISSURE_Playground_2,140,2400.0,19.53
+Starry," FISSURE_Playground_2",140,2400.0,19.53
 Starry,BLAST.tv_Austin_Major_2025,107,2148.6,19.7
 Starry,IEM_Chengdu_2025,141,2159.57,19.19
 Starry,IEM_Dallas_2025,83,2190.96,20.71
 Starry,overall,471,2234.08,19.68
 Summer,PGL_Bucharest_2025,147,2039.8,18.94
 Summer,overall,147,2039.8,18.94
-SunPayus, FISSURE_Playground_2,239,3408.16,26.49
+SunPayus," FISSURE_Playground_2",239,3408.16,26.49
 SunPayus,BLAST_Bounty_2025_Season_1_Finals,40,2896.25,24.54
 SunPayus,BLAST_Open_London _2025_Finals,189,3329.89,25.42
 SunPayus,ESL_Pro_League_Season_22,175,3155.14,25.7
@@ -546,7 +546,7 @@ Swisher,PGL_Astana_2025,173,1973.41,18.51
 Swisher,overall,423,2025.89,18.4
 TaZ,PGL_Astana_2025,276,1993.12,16.42
 TaZ,overall,276,1993.12,16.42
-Tauson, FISSURE_Playground_2,230,2342.17,20.11
+Tauson," FISSURE_Playground_2",230,2342.17,20.11
 Tauson,ESL_Pro_League_Season_21_2025,299,2325.25,19.88
 Tauson,ESL_Pro_League_Season_22,135,2157.41,20.02
 Tauson,Esports_World_Cup_2025,36,1998.61,22.26
@@ -557,7 +557,7 @@ Tauson,IEM_Melbourne_2025,235,2187.45,18.98
 Tauson,PGL_Astana_2025,153,2197.39,19.91
 Tauson,PGL_Bucharest_2025,252,2270.24,19.39
 Tauson,overall,1959,2241.86,19.69
-TeSeS, FISSURE_Playground_2,202,2398.51,17.79
+TeSeS," FISSURE_Playground_2",202,2398.51,17.79
 TeSeS,BLAST_Open_Lisbon_2025,196,2305.61,17.49
 TeSeS,BLAST_Rivals_2025_Season_1,266,2115.04,18.01
 TeSeS,BLAST_Rivals_2025_Season_2,253,2271.15,17.77
@@ -571,8 +571,8 @@ TeSeS,IEM_Katowice_2025,104,1887.98,17.14
 TeSeS,IEM_Melbourne_2025,354,2246.61,18.2
 TeSeS,PGL_Bucharest_2025,422,2174.64,18.15
 TeSeS,PGL_Cluj-Napoca_2025,427,2161.01,18.24
-TeSeS,overall,3741,2176.01,17.78
-Techno, FISSURE_Playground_2,460,2140.33,16.59
+TeSeS,Starladder_Budapest_Major_2025,228,2050.0,17.03
+Techno," FISSURE_Playground_2",460,2140.33,16.59
 Techno,BLAST.tv_Austin_Major_2025,313,2080.99,16.66
 Techno,BLAST_Bounty_2025_Season_2_Finals,168,2218.75,17.64
 Techno,BLAST_Open_Lisbon_2025,209,2072.25,17.23
@@ -589,7 +589,7 @@ Techno,PGL_Astana_2025,192,1999.48,16.44
 Techno,PGL_Bucharest_2025,252,2082.14,17.45
 Techno,PGL_Cluj-Napoca_2025,227,2172.47,17.47
 Techno,overall,3978,2113.86,17.27
-Twistzz, FISSURE_Playground_2,346,2374.42,19.99
+Twistzz," FISSURE_Playground_2",346,2374.42,19.99
 Twistzz,BLAST.tv_Austin_Major_2025,117,2384.19,19.87
 Twistzz,BLAST_Bounty_2025_Season_2_Finals,64,2480.47,19.58
 Twistzz,BLAST_Open_Lisbon_2025,140,2076.43,18.64
@@ -613,7 +613,7 @@ Vexite,PGL_Cluj-Napoca_2025,164,2163.41,19.43
 Vexite,overall,407,2083.66,18.93
 WOOD7,PGL_Astana_2025,240,2841.25,23.81
 WOOD7,overall,240,2841.25,23.81
-Wicadia, FISSURE_Playground_2,196,2439.03,18.87
+Wicadia," FISSURE_Playground_2",196,2439.03,18.87
 Wicadia,BLAST.tv_Austin_Major_2025,121,2129.75,19.6
 Wicadia,BLAST_Bounty_2025_Season_1_Finals,201,2151.0,18.82
 Wicadia,BLAST_Bounty_2025_Season_2_Finals,53,2560.38,20.41
@@ -628,7 +628,7 @@ Wicadia,PGL_Astana_2025,465,2257.31,19.1
 Wicadia,PGL_Bucharest_2025,313,2417.57,19.45
 Wicadia,PGL_Cluj-Napoca_2025,267,2231.46,19.27
 Wicadia,overall,3294,2311.95,19.39
-XANTARES, FISSURE_Playground_2,196,2543.11,20.6
+XANTARES," FISSURE_Playground_2",196,2543.11,20.6
 XANTARES,BLAST.tv_Austin_Major_2025,121,2273.55,21.1
 XANTARES,BLAST_Bounty_2025_Season_1_Finals,201,2412.19,21.21
 XANTARES,BLAST_Bounty_2025_Season_2_Finals,53,2405.66,19.16
@@ -644,7 +644,7 @@ XANTARES,PGL_Cluj-Napoca_2025,267,2334.64,20.8
 XANTARES,overall,3155,2400.59,20.62
 Xant3r,BLAST.tv_Austin_Major_2025,101,2000.5,18.27
 Xant3r,overall,101,2000.5,18.27
-YEKINDAR, FISSURE_Playground_2,409,2401.71,18.35
+YEKINDAR," FISSURE_Playground_2",409,2401.71,18.35
 YEKINDAR,BLAST.tv_Austin_Major_2025,146,2296.58,19.82
 YEKINDAR,BLAST_Open_London _2025_Finals,36,1972.22,18.33
 YEKINDAR,BLAST_Rivals_2025_Season_2,285,2336.84,19.12
@@ -706,7 +706,7 @@ b1t,IEM_Katowice_2025,198,2264.39,19.63
 b1t,IEM_Melbourne_2025,251,2172.31,19.62
 b1t,PGL_Astana_2025,245,2138.98,18.69
 b1t,overall,2345,2194.03,19.33
-bLitz, FISSURE_Playground_2,460,2423.37,19.41
+bLitz," FISSURE_Playground_2",460,2423.37,19.41
 bLitz,BLAST.tv_Austin_Major_2025,313,2324.44,19.28
 bLitz,BLAST_Bounty_2025_Season_2_Finals,168,2365.48,19.23
 bLitz,BLAST_Open_Lisbon_2025,209,2311.48,19.12
@@ -723,7 +723,7 @@ bLitz,PGL_Astana_2025,192,2225.26,18.82
 bLitz,PGL_Bucharest_2025,252,2216.27,19.38
 bLitz,PGL_Cluj-Napoca_2025,227,2281.5,18.56
 bLitz,overall,3978,2303.63,19.07
-biguzera, FISSURE_Playground_2,309,2208.9,17.44
+biguzera," FISSURE_Playground_2",309,2208.9,17.44
 biguzera,BLAST.tv_Austin_Major_2025,315,2021.9,17.11
 biguzera,BLAST_Bounty_2025_Season_1_Finals,78,2287.82,18.36
 biguzera,BLAST_Rivals_2025_Season_1,100,2039.5,17.01
@@ -734,7 +734,7 @@ biguzera,PGL_Astana_2025,165,2086.67,18.3
 biguzera,PGL_Bucharest_2025,193,2094.04,16.9
 biguzera,PGL_Cluj-Napoca_2025,309,2085.76,17.86
 biguzera,overall,2029,2124.05,17.7
-bodyy, FISSURE_Playground_2,251,2385.26,19.72
+bodyy," FISSURE_Playground_2",251,2385.26,19.72
 bodyy,BLAST.tv_Austin_Major_2025,113,2284.51,19.74
 bodyy,ESL_Pro_League_Season_21_2025,240,2185.62,20.28
 bodyy,ESL_Pro_League_Season_22,307,2307.17,19.86
@@ -752,7 +752,7 @@ brnz4n,ESL_Pro_League_Season_21_2025,166,2062.65,18.52
 brnz4n,IEM_Melbourne_2025,168,2171.43,19.71
 brnz4n,PGL_Astana_2025,315,2145.24,18.44
 brnz4n,overall,649,2130.89,18.79
-broky, FISSURE_Playground_2,244,3073.36,23.29
+broky," FISSURE_Playground_2",244,3073.36,23.29
 broky,BLAST_Open_Lisbon_2025,152,3125.66,24.31
 broky,BLAST_Open_London _2025_Finals,52,3415.38,24.74
 broky,BLAST_Rivals_2025_Season_1,145,3193.79,24.26
@@ -801,7 +801,7 @@ cobrazera,overall,86,1932.56,18.55
 controlez,BLAST_Rivals_2025_Season_2,120,2301.25,19.37
 controlez,IEM_Chengdu_2025,290,2312.76,18.61
 controlez,overall,410,2309.39,18.83
-dav1deuS, FISSURE_Playground_2,309,2275.24,19.05
+dav1deuS," FISSURE_Playground_2",309,2275.24,19.05
 dav1deuS,BLAST.tv_Austin_Major_2025,315,2147.62,18.96
 dav1deuS,BLAST_Bounty_2025_Season_1_Finals,78,2437.18,19.15
 dav1deuS,BLAST_Rivals_2025_Season_1,100,2065.0,18.77
@@ -826,7 +826,7 @@ degster,IEM_Katowice_2025,104,2950.0,25.4
 degster,PGL_Bucharest_2025,422,3215.64,25.04
 degster,PGL_Cluj-Napoca_2025,427,3132.44,24.65
 degster,overall,1484,3241.0,25.17
-device, FISSURE_Playground_2,295,3632.71,26.73
+device," FISSURE_Playground_2",295,3632.71,26.73
 device,BLAST_Bounty_2025_Season_2_Finals,38,3044.74,29.17
 device,BLAST_Open_Lisbon_2025,75,2530.0,23.64
 device,ESL_Pro_League_Season_22,142,3157.39,25.84
@@ -840,7 +840,7 @@ device,PGL_Cluj-Napoca_2025,512,3303.52,25.4
 device,overall,2300,3216.63,25.6
 dexter,PGL_Cluj-Napoca_2025,164,2004.88,17.58
 dexter,overall,164,2004.88,17.58
-dgt, FISSURE_Playground_2,309,2390.94,20.66
+dgt," FISSURE_Playground_2",309,2390.94,20.66
 dgt,BLAST.tv_Austin_Major_2025,315,2272.7,20.08
 dgt,BLAST_Rivals_2025_Season_1,100,2241.0,20.67
 dgt,BLAST_Rivals_2025_Season_2,209,2242.58,19.69
@@ -866,7 +866,7 @@ drop,overall,220,2216.36,19.06
 dukefissura,ESL_Pro_League_Season_22,186,2179.03,20.35
 dukefissura,PGL_Astana_2025,197,2259.9,20.93
 dukefissura,overall,383,2220.63,20.65
-dumau, FISSURE_Playground_2,189,2238.62,19.25
+dumau," FISSURE_Playground_2",189,2238.62,19.25
 dumau,BLAST.tv_Austin_Major_2025,174,2195.98,18.76
 dumau,IEM_Dallas_2025,120,2229.58,18.74
 dumau,PGL_Bucharest_2025,231,2317.32,18.94
@@ -889,7 +889,7 @@ exit,IEM_Melbourne_2025,168,2169.94,19.13
 exit,PGL_Astana_2025,315,2142.54,18.39
 exit,PGL_Cluj-Napoca_2025,220,2226.82,18.2
 exit,overall,869,2156.5,18.56
-fame, FISSURE_Playground_2,251,2227.69,18.68
+fame," FISSURE_Playground_2",251,2227.69,18.68
 fame,BLAST.tv_Austin_Major_2025,184,2016.03,18.86
 fame,BLAST_Bounty_2025_Season_2_Finals,39,1964.1,18.11
 fame,BLAST_Open_Lisbon_2025,252,2311.9,18.48
@@ -919,7 +919,7 @@ flameZ,IEM_Melbourne_2025,287,2122.3,16.83
 flameZ,overall,3666,2104.8,17.13
 frontales,ESL_Pro_League_Season_22,186,2934.95,23.69
 frontales,overall,186,2934.95,23.69
-frozen, FISSURE_Playground_2,244,2345.7,19.53
+frozen," FISSURE_Playground_2",244,2345.7,19.53
 frozen,BLAST.tv_Austin_Major_2025,149,2228.52,19.49
 frozen,BLAST_Open_Lisbon_2025,152,2237.5,18.9
 frozen,BLAST_Open_London _2025_Finals,52,2364.42,19.09
@@ -949,7 +949,7 @@ herworld,PGL_Bucharest_2025,24,3395.83,25.49
 herworld,overall,24,3395.83,25.49
 hfah,PGL_Bucharest_2025,213,2112.68,18.25
 hfah,overall,213,2112.68,18.25
-huNter-, FISSURE_Playground_2,239,2269.46,17.98
+huNter-," FISSURE_Playground_2",239,2269.46,17.98
 huNter-,BLAST.tv_Austin_Major_2025,206,2269.66,18.42
 huNter-,BLAST_Bounty_2025_Season_1_Finals,100,2193.5,18.04
 huNter-,BLAST_Open_Lisbon_2025,215,2223.72,19.55
@@ -998,7 +998,7 @@ jL,IEM_Katowice_2025,198,2224.49,18.82
 jL,IEM_Melbourne_2025,251,2199.2,19.55
 jL,PGL_Astana_2025,245,2216.33,19.31
 jL,overall,1485,2195.76,19.17
-jabbi, FISSURE_Playground_2,295,2400.51,18.47
+jabbi," FISSURE_Playground_2",295,2400.51,18.47
 jabbi,BLAST_Bounty_2025_Season_2_Finals,38,1967.11,18.58
 jabbi,BLAST_Open_Lisbon_2025,75,1799.33,18.22
 jabbi,ESL_Pro_League_Season_22,142,2083.45,18.86
@@ -1010,7 +1010,7 @@ jabbi,PGL_Astana_2025,432,2194.91,18.49
 jabbi,PGL_Bucharest_2025,287,2163.24,17.82
 jabbi,PGL_Cluj-Napoca_2025,512,2239.16,18.24
 jabbi,overall,2300,2181.39,18.35
-jcobbb, FISSURE_Playground_2,244,2374.59,19.56
+jcobbb," FISSURE_Playground_2",244,2374.59,19.56
 jcobbb,BLAST_Open_London _2025_Finals,52,2392.31,19.75
 jcobbb,IEM_Chengdu_2025,98,2006.12,20.32
 jcobbb,PGL_Bucharest_2025,213,2224.41,19.79
@@ -1019,7 +1019,7 @@ jks,BLAST_Open_Lisbon_2025,140,2065.0,18.76
 jks,ESL_Pro_League_Season_21_2025,327,2206.88,18.76
 jks,IEM_Katowice_2025,152,2167.76,18.54
 jks,overall,619,2165.19,18.71
-jottAAA, FISSURE_Playground_2,196,2390.82,18.33
+jottAAA," FISSURE_Playground_2",196,2390.82,18.33
 jottAAA,BLAST.tv_Austin_Major_2025,121,2054.96,18.12
 jottAAA,BLAST_Bounty_2025_Season_1_Finals,201,2200.5,18.72
 jottAAA,BLAST_Bounty_2025_Season_2_Finals,53,2290.57,18.96
@@ -1037,7 +1037,7 @@ jottAAA,overall,3294,2243.21,18.62
 kade0,ESL_Pro_League_Season_22,186,1899.73,17.12
 kade0,PGL_Astana_2025,197,1986.55,17.48
 kade0,overall,383,1944.39,17.3
-karrigan, FISSURE_Playground_2,244,2206.76,18.33
+karrigan," FISSURE_Playground_2",244,2206.76,18.33
 karrigan,BLAST.tv_Austin_Major_2025,149,1977.52,17.08
 karrigan,BLAST_Open_Lisbon_2025,152,2134.21,18.07
 karrigan,BLAST_Open_London _2025_Finals,52,2317.31,18.41
@@ -1062,19 +1062,19 @@ khaN,BLAST.tv_Austin_Major_2025,101,2956.44,24.56
 khaN,overall,101,2956.44,24.56
 ksloks,PGL_Astana_2025,240,2225.42,20.32
 ksloks,overall,240,2225.42,20.32
-kyousuke, FISSURE_Playground_2,202,2550.74,19.45
+kyousuke," FISSURE_Playground_2",202,2550.74,19.45
 kyousuke,BLAST_Rivals_2025_Season_2,253,2526.88,20.28
 kyousuke,ESL_Pro_League_Season_22,326,2366.56,19.44
 kyousuke,Esports_World_Cup_2025,202,2277.72,20.16
 kyousuke,IEM_Chengdu_2025,227,2418.28,20.07
 kyousuke,IEM_Cologne_2025,151,2464.24,21.06
-kyousuke,overall,1361,2429.98,19.99
+kyousuke,Starladder_Budapest_Major_2025,228,2371.05,20.79
 kyuubii,IEM_Katowice_2025,108,2072.22,18.45
 kyuubii,IEM_Melbourne_2025,115,2098.26,18.36
 kyuubii,PGL_Astana_2025,188,2067.55,18.41
 kyuubii,PGL_Cluj-Napoca_2025,238,2065.13,18.46
 kyuubii,overall,649,2072.88,18.43
-kyxsan, FISSURE_Playground_2,202,2290.35,17.0
+kyxsan," FISSURE_Playground_2",202,2290.35,17.0
 kyxsan,BLAST_Open_Lisbon_2025,196,2251.53,16.71
 kyxsan,BLAST_Rivals_2025_Season_1,266,2013.16,17.31
 kyxsan,BLAST_Rivals_2025_Season_2,253,2146.05,16.47
@@ -1086,22 +1086,22 @@ kyxsan,IEM_Cologne_2025,151,2126.49,17.22
 kyxsan,IEM_Dallas_2025,276,1984.96,17.0
 kyxsan,IEM_Katowice_2025,104,1849.52,17.16
 kyxsan,IEM_Melbourne_2025,354,2093.5,16.76
-kyxsan,PGL_Bucharest_2025,422,2078.08,17.37
+kyxsan,PGL_Bucharest_2025,422,2078.08,16.63
 kyxsan,PGL_Cluj-Napoca_2025,427,2023.3,16.98
-kyxsan,overall,3741,2090.56,17.04
+kyxsan,Starladder_Budapest_Major_2025,228,2006.14,17.04
 lampada,PGL_Astana_2025,197,2044.42,18.62
 lampada,overall,197,2044.42,18.62
-latto, FISSURE_Playground_2,189,2211.64,18.38
+latto," FISSURE_Playground_2",189,2211.64,18.38
 latto,BLAST.tv_Austin_Major_2025,174,2286.49,19.84
 latto,IEM_Dallas_2025,120,2299.17,19.01
 latto,PGL_Bucharest_2025,231,2286.8,18.72
 latto,overall,714,2268.91,18.95
-lux, FISSURE_Playground_2,189,2249.21,19.5
+lux," FISSURE_Playground_2",189,2249.21,19.5
 lux,BLAST.tv_Austin_Major_2025,174,2222.41,18.72
 lux,IEM_Dallas_2025,120,2257.92,18.93
 lux,PGL_Bucharest_2025,231,2337.01,20.23
 lux,overall,714,2272.55,19.45
-m0NESY, FISSURE_Playground_2,202,3628.47,25.85
+m0NESY," FISSURE_Playground_2",202,3628.47,25.85
 m0NESY,BLAST_Bounty_2025_Season_1_Finals,100,3268.0,26.4
 m0NESY,BLAST_Open_Lisbon_2025,215,2946.74,24.51
 m0NESY,BLAST_Rivals_2025_Season_1,266,3114.66,24.91
@@ -1115,7 +1115,7 @@ m0NESY,IEM_Dallas_2025,276,3021.56,24.48
 m0NESY,IEM_Katowice_2025,191,3202.88,26.39
 m0NESY,IEM_Melbourne_2025,354,3266.24,25.41
 m0NESY,PGL_Bucharest_2025,309,3388.03,26.51
-m0NESY,overall,3377,3228.13,25.52
+m0NESY,Starladder_Budapest_Major_2025,228,3071.49,24.92
 maden,BLAST_Bounty_2025_Season_1_Finals,40,2007.5,19.36
 maden,overall,40,2007.5,19.36
 magixx,BLAST.tv_Austin_Major_2025,167,2253.29,17.69
@@ -1131,7 +1131,7 @@ makazze,Esports_World_Cup_2025,69,2226.81,19.43
 makazze,IEM_Chengdu_2025,143,2192.31,18.02
 makazze,IEM_Cologne_2025,336,2200.89,18.47
 makazze,overall,860,2189.42,18.24
-malbsMd, FISSURE_Playground_2,239,2286.4,18.48
+malbsMd," FISSURE_Playground_2",239,2286.4,18.48
 malbsMd,BLAST.tv_Austin_Major_2025,206,2287.62,18.51
 malbsMd,BLAST_Bounty_2025_Season_1_Finals,100,2251.5,19.04
 malbsMd,BLAST_Open_Lisbon_2025,215,2169.3,19.03
@@ -1169,7 +1169,7 @@ mir,overall,37,1931.08,19.05
 mizu,ESL_Pro_League_Season_22,186,2067.74,18.34
 mizu,PGL_Astana_2025,197,2026.4,18.28
 mizu,overall,383,2046.48,18.31
-molodoy, FISSURE_Playground_2,409,3557.33,26.34
+molodoy," FISSURE_Playground_2",409,3557.33,26.34
 molodoy,BLAST.tv_Austin_Major_2025,146,3308.56,26.04
 molodoy,BLAST_Open_London _2025_Finals,36,2925.0,28.37
 molodoy,BLAST_Rivals_2025_Season_2,285,3421.58,26.55
@@ -1181,7 +1181,7 @@ molodoy,PGL_Astana_2025,391,3256.01,26.51
 molodoy,overall,2233,3422.64,26.75
 mopoz,ESL_Pro_League_Season_22,185,2095.14,18.04
 mopoz,overall,185,2095.14,18.04
-mzinho, FISSURE_Playground_2,460,2292.28,17.99
+mzinho," FISSURE_Playground_2",460,2292.28,17.99
 mzinho,BLAST.tv_Austin_Major_2025,313,2208.47,17.66
 mzinho,BLAST_Bounty_2025_Season_2_Finals,168,2238.99,17.31
 mzinho,BLAST_Open_Lisbon_2025,209,2211.0,17.96
@@ -1200,7 +1200,7 @@ mzinho,PGL_Cluj-Napoca_2025,227,2191.63,17.19
 mzinho,overall,3978,2203.39,17.84
 n0rb3r7,ESL_Pro_League_Season_22,186,2160.75,20.49
 n0rb3r7,overall,186,2160.75,20.49
-n1ssim, FISSURE_Playground_2,189,2198.68,18.78
+n1ssim," FISSURE_Playground_2",189,2198.68,18.78
 n1ssim,BLAST.tv_Austin_Major_2025,174,2272.13,18.78
 n1ssim,IEM_Dallas_2025,120,2270.42,19.41
 n1ssim,PGL_Bucharest_2025,231,2261.9,18.6
@@ -1223,7 +1223,7 @@ nicx,PGL_Cluj-Napoca_2025,168,2244.05,18.9
 nicx,overall,859,2158.5,18.22
 nifee,ESL_Pro_League_Season_22,176,2132.1,18.74
 nifee,overall,176,2132.1,18.74
-nilo, FISSURE_Playground_2,215,2381.16,19.05
+nilo," FISSURE_Playground_2",215,2381.16,19.05
 nilo,Esports_World_Cup_2025,108,2277.31,19.65
 nilo,IEM_Chengdu_2025,195,2202.05,19.06
 nilo,IEM_Cologne_2025,87,2135.06,20.26
@@ -1234,7 +1234,7 @@ nitr0,IEM_Dallas_2025,71,1917.61,19.78
 nitr0,overall,71,1917.61,19.78
 noway,BLAST_Open_Lisbon_2025,104,2093.75,18.83
 noway,overall,104,2093.75,18.83
-nqz, FISSURE_Playground_2,309,3213.43,24.69
+nqz," FISSURE_Playground_2",309,3213.43,24.69
 nqz,BLAST.tv_Austin_Major_2025,315,3192.22,26.34
 nqz,BLAST_Bounty_2025_Season_1_Finals,78,3466.67,26.39
 nqz,BLAST_Rivals_2025_Season_1,100,3201.5,26.11
@@ -1260,7 +1260,7 @@ pr1metapz,overall,84,2148.81,19.89
 r1nkle,IEM_Cologne_2025,156,3243.91,25.46
 r1nkle,PGL_Astana_2025,311,3258.52,26.67
 r1nkle,overall,467,3253.64,26.26
-rain, FISSURE_Playground_2,244,2345.29,19.28
+rain," FISSURE_Playground_2",244,2345.29,19.28
 rain,BLAST.tv_Austin_Major_2025,149,2170.81,18.18
 rain,BLAST_Open_Lisbon_2025,152,2251.97,18.75
 rain,BLAST_Open_London _2025_Finals,52,2310.58,18.01
@@ -1314,7 +1314,7 @@ s1ren,BLAST_Bounty_2025_Season_1_Finals,31,2046.77,21.71
 s1ren,overall,31,2046.77,21.71
 sAw,IEM_Chengdu_2025,41,1771.95,14.9
 sAw,overall,41,1771.95,14.9
-saadzin, FISSURE_Playground_2,189,3030.42,24.09
+saadzin," FISSURE_Playground_2",189,3030.42,24.09
 saadzin,BLAST.tv_Austin_Major_2025,174,3147.13,23.9
 saadzin,IEM_Dallas_2025,120,3099.58,23.91
 saadzin,PGL_Bucharest_2025,231,3124.46,23.5
@@ -1340,7 +1340,7 @@ sh1ro,IEM_Cologne_2025,312,3373.24,25.5
 sh1ro,IEM_Katowice_2025,363,3236.64,26.17
 sh1ro,PGL_Astana_2025,327,3264.83,25.43
 sh1ro,overall,2945,3331.0,25.73
-siuhy, FISSURE_Playground_2,346,2239.31,18.05
+siuhy," FISSURE_Playground_2",346,2239.31,18.05
 siuhy,BLAST.tv_Austin_Major_2025,117,2229.49,18.06
 siuhy,BLAST_Bounty_2025_Season_2_Finals,64,2366.41,17.9
 siuhy,Esports_World_Cup_2025,59,2315.25,16.79
@@ -1368,7 +1368,7 @@ slaxz-,BLAST_Open_Lisbon_2025,189,2979.37,24.85
 slaxz-,BLAST_Open_London _2025_Finals,61,2801.64,24.33
 slaxz-,PGL_Astana_2025,173,3004.91,26.06
 slaxz-,overall,423,2964.18,25.27
-snow, FISSURE_Playground_2,309,2219.42,18.15
+snow," FISSURE_Playground_2",309,2219.42,18.15
 snow,BLAST.tv_Austin_Major_2025,315,2051.11,17.5
 snow,BLAST_Bounty_2025_Season_1_Finals,78,2348.72,18.13
 snow,BLAST_Rivals_2025_Season_1,100,2039.0,17.43
@@ -1408,7 +1408,7 @@ tN1R,IEM_Dallas_2025,262,2368.89,19.86
 tN1R,overall,986,2301.01,19.37
 tN1r,BLAST_Rivals_2025_Season_2,69,2213.77,19.16
 tN1r,overall,69,2213.77,19.16
-tO0RO, FISSURE_Playground_2,251,2124.1,18.19
+tO0RO," FISSURE_Playground_2",251,2124.1,18.19
 tO0RO,IEM_Chengdu_2025,194,2069.85,17.68
 tO0RO,overall,445,2100.45,17.97
 tabseN,IEM_Katowice_2025,108,1851.39,15.8
@@ -1437,7 +1437,7 @@ try,BLAST_Open_Lisbon_2025,104,2950.48,25.39
 try,overall,104,2950.48,25.39
 twenty3,PGL_Cluj-Napoca_2025,101,1698.02,18.47
 twenty3,overall,101,1698.02,18.47
-ultimate, FISSURE_Playground_2,346,3093.35,24.18
+ultimate," FISSURE_Playground_2",346,3093.35,24.18
 ultimate,BLAST.tv_Austin_Major_2025,117,3298.29,25.56
 ultimate,BLAST_Bounty_2025_Season_2_Finals,64,3511.72,24.13
 ultimate,BLAST_Open_Lisbon_2025,140,2762.5,23.05
@@ -1461,12 +1461,12 @@ w0nderful,IEM_Katowice_2025,198,3153.03,25.28
 w0nderful,IEM_Melbourne_2025,251,2876.29,24.35
 w0nderful,PGL_Astana_2025,245,3123.67,25.73
 w0nderful,overall,2345,3098.72,25.46
-westmelon, FISSURE_Playground_2,140,2251.07,17.86
+westmelon," FISSURE_Playground_2",140,2251.07,17.86
 westmelon,BLAST.tv_Austin_Major_2025,107,2020.56,18.45
 westmelon,IEM_Chengdu_2025,141,2029.79,17.08
 westmelon,IEM_Dallas_2025,83,1927.71,17.43
 westmelon,overall,471,2075.48,17.68
-woxic, FISSURE_Playground_2,196,3538.27,25.4
+woxic," FISSURE_Playground_2",196,3538.27,25.4
 woxic,BLAST.tv_Austin_Major_2025,121,3097.11,24.45
 woxic,BLAST_Bounty_2025_Season_1_Finals,201,3105.72,23.89
 woxic,BLAST_Bounty_2025_Season_2_Finals,53,3433.96,25.35
@@ -1500,7 +1500,7 @@ xertioN,IEM_Katowice_2025,86,2180.23,21.86
 xertioN,IEM_Melbourne_2025,187,2227.27,18.46
 xertioN,PGL_Cluj-Napoca_2025,463,2334.67,19.59
 xertioN,overall,3689,2321.98,19.51
-xfl0ud, FISSURE_Playground_2,215,2438.84,19.64
+xfl0ud," FISSURE_Playground_2",215,2438.84,19.64
 xfl0ud,BLAST_Bounty_2025_Season_1_Finals,40,2157.5,19.59
 xfl0ud,IEM_Chengdu_2025,195,2215.38,19.01
 xfl0ud,IEM_Cologne_2025,139,2293.53,18.86
@@ -1510,7 +1510,7 @@ yAmi,BLAST_Open_Lisbon_2025,86,2030.23,20.53
 yAmi,overall,86,2030.23,20.53
 youka,PGL_Astana_2025,197,3081.98,24.69
 youka,overall,197,3081.98,24.69
-yuurih, FISSURE_Playground_2,409,2433.37,19.31
+yuurih," FISSURE_Playground_2",409,2433.37,19.31
 yuurih,BLAST.tv_Austin_Major_2025,146,2192.81,18.32
 yuurih,BLAST_Open_Lisbon_2025,128,2340.23,20.25
 yuurih,BLAST_Open_London _2025_Finals,36,2001.39,18.95
@@ -1524,14 +1524,14 @@ yuurih,IEM_Katowice_2025,102,2091.18,18.89
 yuurih,PGL_Astana_2025,391,2204.86,19.16
 yuurih,PGL_Bucharest_2025,182,2021.15,19.45
 yuurih,overall,2917,2264.72,19.0
-yxngstxr, FISSURE_Playground_2,215,2311.63,18.48
+yxngstxr," FISSURE_Playground_2",215,2311.63,18.48
 yxngstxr,BLAST_Bounty_2025_Season_1_Finals,40,2027.5,19.28
 yxngstxr,Esports_World_Cup_2025,108,2114.81,17.54
 yxngstxr,IEM_Chengdu_2025,195,2194.62,18.94
 yxngstxr,IEM_Cologne_2025,87,2085.06,19.42
 yxngstxr,IEM_Dallas_2025,262,2227.67,18.47
 yxngstxr,overall,907,2204.52,18.59
-z4KR, FISSURE_Playground_2,140,3426.79,25.14
+z4KR," FISSURE_Playground_2",140,3426.79,25.14
 z4KR,BLAST.tv_Austin_Major_2025,107,2864.95,24.59
 z4KR,IEM_Chengdu_2025,141,3185.46,25.89
 z4KR,IEM_Dallas_2025,83,2739.76,23.87
@@ -1549,7 +1549,7 @@ zont1x,IEM_Cologne_2025,312,2248.4,17.86
 zont1x,IEM_Katowice_2025,363,2207.99,18.22
 zont1x,PGL_Astana_2025,327,2238.23,18.58
 zont1x,overall,2347,2291.82,18.49
-ztr, FISSURE_Playground_2,230,2035.87,16.13
+ztr," FISSURE_Playground_2",230,2035.87,16.13
 ztr,ESL_Pro_League_Season_21_2025,299,1955.52,16.23
 ztr,ESL_Pro_League_Season_22,135,1897.41,16.57
 ztr,Esports_World_Cup_2025,36,1500.0,15.67

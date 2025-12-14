@@ -28,7 +28,7 @@ ax.text(50, 89.6, 'Who Converts Resources to Wins?',
 
 # Bar chart section
 players = ['m0NESY', 'NiKo', 'kyousuke']
-avg_coefs = [0.217, 0.083, -0.156]
+avg_coefs = [1.035, 0.116, -0.490]
 colors = ['#8bd0a7', '#f39c12', '#e17c7c']  # Green, yellow, red
 edge_colors = ['#8ab7a0', '#d68910', '#c47d7d']
 
@@ -99,7 +99,7 @@ ax.text(50, interp_y,
 
 # Disclaimer (similar to exit frag charts)
 ax.text(50, 41, 
-        'Limitations: Small sample (6-9 events) | No statistical significance (p>0.05) | Exploratory analysis only',
+        'Limitations: Small sample (7-10 events) | No statistical significance (p>0.05) | Exploratory analysis only',
         ha='center', va='bottom',
         fontsize=8, style='italic', color='#9aa3aa')
 

@@ -6,7 +6,7 @@ import numpy as np
 
 # === Configuration ===
 input_csv = "weapon_economy_percentage.csv"
-output_plot = "weapon_economy_timeline_smooth_opener.png"
+output_plot = "weapon_economy_timeline_smooth_closer.png"
 
 # === MANUAL CONFIGURATION: Define which players to plot and their colors ===
 # players_to_plot = {
@@ -26,28 +26,28 @@ output_plot = "weapon_economy_timeline_smooth_opener.png"
 #     # "molodoy": "#e377c2",
 # }
 
-# players_to_plot = {
-#     "Spinx": "#ffdcdc",      # Blue
-#     "KSCERATO": "#f5cece",        # Orange
-#     "NiKo": "#37b41d",
-#     "mzinho": "#faefd1",          # Green
-#     "tN1R": "#ddfde3",        # Purple
-#     "iM": "#fff7d6",    # Brown
-#     "Twistzz": "#FEDCDC",         # Pink
-#     "ropz": "#f6fbcc",        # Gray
-#     "frozen": "#ffd3d3",
-# }
-
 players_to_plot = {
-    "xertioN": "#ffdcdc",
-    "YEKINDAR": "#f5cece",       
-    "kyousuke": "#ff7f0e",
-    "Senzu": "#faefd1",         
-    "controlez": "#feefcf", 
-    "donk": "#ddfde3",       
-    "makazze": "#fff7d6",   
-    "flameZ": "#f6fbcc",  
+    "Spinx": "#ffdcdc",      # Blue
+    "KSCERATO": "#f5cece",        # Orange
+    "NiKo": "#37b41d",
+    "mzinho": "#faefd1",          # Green
+    "tN1R": "#ddfde3",        # Purple
+    "iM": "#fff7d6",    # Brown
+    "Twistzz": "#FEDCDC",         # Pink
+    "ropz": "#f6fbcc",        # Gray
+    "frozen": "#ffd3d3",
 }
+
+# players_to_plot = {
+#     "xertioN": "#ffdcdc",
+#     "YEKINDAR": "#f5cece",       
+#     "kyousuke": "#ff7f0e",
+#     "Senzu": "#faefd1",         
+#     "controlez": "#feefcf", 
+#     "donk": "#ddfde3",       
+#     "makazze": "#fff7d6",   
+#     "flameZ": "#f6fbcc",  
+# }
 
 player_color_segments = {
     # "m0NESY": {
@@ -89,7 +89,8 @@ event_order = [
     "FISSURE_Playground_2",
     "ESL_Pro_League_Season_22",
     "IEM_Chengdu_2025",
-    "BLAST_Rivals_2025_Season_2"
+    "BLAST_Rivals_2025_Season_2",
+    "Starladder_Budapest_Major_2025"
 ]
 
 # === Load data ===
