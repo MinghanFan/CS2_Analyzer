@@ -17,7 +17,7 @@ output_base_dir.mkdir(exist_ok=True)
 
 # === MANUAL CONFIGURATION: Define team combinations to analyze ===
 team_combinations = {
-    # "Falcons_Core": ["m0NESY", "NiKo", "kyousuke"],
+    #"Falcons_Core": ["m0NESY", "NiKo", "kyousuke"],
     "Falcons_Duo_mNiko": ["m0NESY", "NiKo"],
     "Falcons_Duo_mKyou": ["m0NESY", "kyousuke"],
     "Falcons_Duo_NikoKyou": ["NiKo", "kyousuke"]

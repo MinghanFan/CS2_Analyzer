@@ -18,17 +18,17 @@ ax.set_ylim(0, 100)
 ax.axis('off')
 
 # Title (similar style to exit frag charts)
-ax.text(50, 93, 'FALCONS RATING EFFICIENCY', 
+ax.text(50, 93, 'FALCONS ECONOMY EFFICIENCY', 
         ha='center', va='center',
         fontsize=26, fontweight='bold', color='#4a545b')
 
-ax.text(50, 89.6, 'Who Converts Performance to Wins?', 
+ax.text(50, 89.6, 'Who Converts Resources to Wins?', 
         ha='center', va='center',
         fontsize=14, style='italic', color='#7f8c8d')
 
 # Bar chart section
 players = ['m0NESY', 'NiKo', 'kyousuke']
-avg_coefs = [1.035, 0.116, -0.490]
+avg_coefs = [0.1067, 0.0736, -0.1624]
 colors = ['#8bd0a7', '#f39c12', '#e17c7c']  # Green, yellow, red
 edge_colors = ['#8ab7a0', '#d68910', '#c47d7d']
 
@@ -73,7 +73,7 @@ for idx, (player, coef, color, edge) in enumerate(zip(players, avg_coefs, colors
         bar_rect = plt.Rectangle((zero_line_x - bar_width, y_pos - bar_height/2 + 2), bar_width, bar_height - 4,
                                  facecolor=color, edgecolor=edge, 
                                  linewidth=2.5, transform=ax.transData)
-        value_x = zero_line_x - bar_width - 2
+        value_x = zero_line_x + 8
         value_ha = 'right'
     
     ax.add_patch(bar_rect)
@@ -91,8 +91,8 @@ ax.plot([zero_line_x, zero_line_x], [bar_y_start + 8, bar_y_start - (len(players
 # Interpretation (below bars, closer)
 interp_y = bar_y_start - (len(players) * bar_spacing) +3
 ax.text(50, interp_y, 
-        'Positive = Higher rating correlates with better team placement\n' +
-        'Negative = Higher rating correlates with worse team placement',
+        'Positive = Higher economy share correlates with better team placement\n' +
+        'Negative = Higher economy share correlates with worse team placement',
         ha='center', va='top',
         fontsize=10, color='#7f8c8d',
         bbox=dict(boxstyle='round', facecolor='#f5f5f5', alpha=0.7, edgecolor='#bdbdbd'))
@@ -104,26 +104,26 @@ ax.text(50, 41,
         fontsize=8, style='italic', color='#9aa3aa')
 
 ax.text(50, 39.5, 
-        'Data: 2025 Big Event events since Melbourne | Method: Additive regression models | Metric: Rating to Inverted Placement | By clu0ki @creniusz',
+        'Data: 2025 Big Event events since Melbourne | Method: Additive regression models | Metric: Economy % to Inverted Placement | By clu0ki @creniusz',
         ha='center', va='bottom',
         fontsize=7, color='#9aa3aa')
 
 plt.tight_layout(pad=0)
-plt.savefig(output_dir / 'social_media_infographic.png', dpi=300, bbox_inches='tight', facecolor='white')
+plt.savefig(output_dir / 'social_media_infographic_2.png', dpi=300, bbox_inches='tight', facecolor='white')
 print(f"Saved: social_media_infographic.png")
 plt.close()
 
 print(f"\nVisualization saved to '{output_dir}/' folder!")
 print("\nSUGGESTED POST CAPTION:")
 print("""
-Falcons Rating Analysis: Performance Efficiency Study
+Falcons Economy Analysis: Resource Efficiency Study
 
-Analyzed how player ratings relate to team performance across 2025 events.
+Analyzed how weapon economy distribution relates to team performance across 2025 events.
 
-Key Pattern: m0NESY shows strongest positive correlation (+1.04 avg) - when he performs 
-better, team tends to place better.
+Key Pattern: m0NESY shows strongest positive correlation (+0.22 avg) - when he gets more 
+resources, team tends to place better.
 
-Important: Small sample size (7-10 events), not statistically significant. This is 
+Important: Small sample size (6-9 events), not statistically significant. This is 
 exploratory analysis showing patterns, not proof.
 
 #CS2Stats #Falcons #DataAnalysis #Esports
