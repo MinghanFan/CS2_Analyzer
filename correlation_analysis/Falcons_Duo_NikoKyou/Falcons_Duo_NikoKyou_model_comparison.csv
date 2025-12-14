@@ -1,0 +1,5 @@
+Model,R²,Adjusted_R²,Formula
+Additive,0.41916515653414244,0.03194192755690406,0.0906*NiKo + -0.1609*kyousuke
+Multiplicative,0.16714012090314811,-0.04107484887106483,-0.0041*(NiKo*kyousuke)
+Full_Interactions,0.9455524761736004,0.8638811904340009,See coefficients
+Simplified_Interactions,0.9455524761736004,0.8638811904340009,See coefficients

@@ -35,7 +35,7 @@ event_order = [
     "IEM_Cologne_2025",
     "BLAST_Bounty_2025_Season_2_Finals",
     "Esports_World_Cup_2025",
-    "BLAST_Open_London _2025_Finals",
+    "BLAST_Open_London_2025_Finals",
     "FISSURE_Playground_2",
     "ESL_Pro_League_Season_22",
     "IEM_Chengdu_2025",
@@ -62,9 +62,12 @@ if df_plot.empty:
 all_events = df_plot["Event"].unique()
 
 # Use provided event order, and append any events not in the order list
+# Use ONLY the events specified in event_order
 events_in_data = [e for e in event_order if e in all_events]
-events_not_in_order = [e for e in all_events if e not in event_order]
-final_event_order = events_in_data + sorted(events_not_in_order)
+final_event_order = events_in_data
+
+# Also filter the dataframe to only include these events
+df_plot = df_plot[df_plot["Event"].isin(final_event_order)]
 
 print(f"Events in timeline order: {final_event_order}")
 

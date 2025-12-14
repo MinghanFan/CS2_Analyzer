@@ -1,0 +1,14 @@
+Model,Term,Coefficient,Interpretation
+Additive,m0NESY,0.9098500528600958,↑ (Higher rating → Better placement)
+Additive,NiKo,0.18449987787366265,↑ (Higher rating → Better placement)
+Additive,intercept,-1.0554259869992597,
+Multiplicative,product,0.3441664737298623,
+Multiplicative,intercept,-0.1813148096059647,
+Full_Interactions,m0NESY,2.0566150790398545,↑ (Higher rating → Better placement)
+Full_Interactions,NiKo,1.5098226419120362,↑ (Higher rating → Better placement)
+Full_Interactions,m0NESY*NiKo,-1.1015363763340953,↓ (Higher rating → Worse placement)
+Full_Interactions,intercept,-2.431061445456388,
+Simplified_Interactions,m0NESY,2.0566150790398545,↑ (Higher rating → Better placement)
+Simplified_Interactions,NiKo,1.5098226419120362,↑ (Higher rating → Better placement)
+Simplified_Interactions,m0NESY*NiKo,-1.1015363763340953,↓ (Higher rating → Worse placement)
+Simplified_Interactions,intercept,-2.431061445456388,

@@ -1,0 +1,14 @@
+Model,Term,Coefficient,Interpretation
+Additive,m0NESY,0.044912729282899036,↑ (Higher economy → Better placement)
+Additive,kyousuke,-0.10619863838221232,↓ (Higher economy → Worse placement)
+Additive,intercept,1.3297567078831718,
+Multiplicative,product,-0.0016615107339935185,
+Multiplicative,intercept,1.190147942754716,
+Full_Interactions,m0NESY,-4.517225049706195,↓ (Higher economy → Worse placement)
+Full_Interactions,kyousuke,-5.910563092383551,↓ (Higher economy → Worse placement)
+Full_Interactions,m0NESY*kyousuke,0.23458285982383292,↑ (Higher economy → Better placement)
+Full_Interactions,intercept,114.17916695426439,
+Simplified_Interactions,m0NESY,-4.517225049706195,↓ (Higher economy → Worse placement)
+Simplified_Interactions,kyousuke,-5.910563092383551,↓ (Higher economy → Worse placement)
+Simplified_Interactions,m0NESY*kyousuke,0.23458285982383292,↑ (Higher economy → Better placement)
+Simplified_Interactions,intercept,114.17916695426439,
