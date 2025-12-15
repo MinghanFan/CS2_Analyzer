@@ -24,7 +24,7 @@ event_order = [
     "BLAST_Bounty_2025_Season_1_Finals",
     "IEM_Katowice_2025",
     "PGL_Cluj-Napoca_2025",
-    "ESL_Pro_League_Season_21_2025",
+    "ESL_Pro_League_Season_21",
     "BLAST_Open_Lisbon_2025",
     "PGL_Bucharest_2025",
     "IEM_Melbourne_2025",

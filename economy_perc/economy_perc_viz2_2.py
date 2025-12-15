@@ -16,7 +16,7 @@ players_to_plot = {
     "910": "#faefd0",          # Green
     "sh1ro": "#d9fddf",        # Purple
     "w0nderful": "#fbffc7",    # Brown
-    "broky": "#FFD3D3",         # Pink
+    #"broky": "#FFD3D3",         # Pink
     "ZywOo": "#f2fcbf",        # Gray
     # "NiKo": "#1f77b4",
     # "kyousuke": "#ff7f0e",
@@ -56,7 +56,7 @@ player_color_segments = {
     #             "BLAST_Bounty_2025_Season_1_Finals",
     #             "IEM_Katowice_2025",
     #             "PGL_Cluj-Napoca_2025",
-    #             "ESL_Pro_League_Season_21_2025",
+    #             "ESL_Pro_League_Season_21",
     #             "BLAST_Open_Lisbon_2025",
     #             "PGL_Bucharest_2025"
     #         ]
@@ -73,7 +73,7 @@ event_order = [
     "BLAST_Bounty_2025_Season_1_Finals",
     "IEM_Katowice_2025",
     "PGL_Cluj-Napoca_2025",
-    "ESL_Pro_League_Season_21_2025",
+    "ESL_Pro_League_Season_21",
     "BLAST_Open_Lisbon_2025",
     "PGL_Bucharest_2025",
     "IEM_Melbourne_2025",
@@ -89,7 +89,7 @@ event_order = [
     "ESL_Pro_League_Season_22",
     "IEM_Chengdu_2025",
     "BLAST_Rivals_2025_Season_2",
-    "Starladder_Budapest_Major_2025"
+    "StarLadder_Budapest_Major_2025"
 ]
 
 # === Load data ===
