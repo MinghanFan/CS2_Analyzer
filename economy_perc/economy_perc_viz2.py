@@ -23,6 +23,7 @@ players_to_plot = {
     "TeSeS": "#d7d122",
     "kyxsan": "#bd4bc1",
     "Magisk": "#6ebfcf",
+    "degster": "#e377c2",
     # "molodoy": "#e377c2",
 }
 
@@ -62,7 +63,7 @@ event_order = [
     "IEM_Cologne_2025",
     "BLAST_Bounty_2025_Season_2_Finals",
     "Esports_World_Cup_2025",
-    "BLAST_Open_London_2025_Finals",
+    "BLAST_Open_London _2025_Finals",
     "FISSURE_Playground_2",
     "ESL_Pro_League_Season_22",
     "IEM_Chengdu_2025",
@@ -144,7 +145,7 @@ for player, color in players_to_plot.items():
                 late_min_pos = late_data["event_position"].min()
                 
                 # Plot early segment with label (includes transition to late_min_pos)
-                early_mask = x_smooth_all <= late_min_pos
+                early_mask = x_smooth_all <= early_max_pos
                 ax.plot(x_smooth_all[early_mask], y_smooth_all[early_mask], 
                        label=f"G2 {player}", color=early_color, linewidth=2.5, alpha=0.8, zorder=3)
                 x_early = early_data["event_position"].values
@@ -153,7 +154,7 @@ for player, color in players_to_plot.items():
                        linestyle='', markeredgewidth=1.5, markeredgecolor='white', zorder=4)
                 
                 # Plot late segment with label (starts FROM late_min_pos, no overlap)
-                late_mask = x_smooth_all >= late_min_pos
+                late_mask = x_smooth_all >= early_max_pos
                 ax.plot(x_smooth_all[late_mask], y_smooth_all[late_mask], 
                        label=f"Falcons {player}", color=late_color, linewidth=2.5, alpha=0.8, zorder=2)
                 x_late = late_data["event_position"].values
@@ -202,7 +203,7 @@ ax.grid(True, alpha=0.3)
 
 # Set x-axis ticks to show event names at correct positions
 ax.set_xticks(range(len(final_event_order)))
-ax.set_xticklabels(final_event_order, rotation=45, ha='right')
+ax.set_xticklabels(final_event_order, rotation=45, ha='right', fontsize=5)
 
 plt.tight_layout()
 plt.savefig(output_plot, dpi=300, bbox_inches='tight')
