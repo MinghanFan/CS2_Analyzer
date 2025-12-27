@@ -13,7 +13,7 @@ output_equal = "weapon_adv_best_equal.png"
 output_disadvantage = "weapon_adv_best_disadvantage.png"
 output_consistent = "weapon_adv_most_consistent.png"
 MIN_ROUNDS = 1200
-MIN_CONDITION_ROUNDS = 200  # Minimum rounds in the specific condition being analyzed
+MIN_CONDITION_ROUNDS = 400  # Minimum rounds in the specific condition being analyzed
 
 # ===== TEAM COLORS =====
 TEAM_COLORS = {
@@ -168,9 +168,17 @@ TITLE_X = 53
 TITLE_Y = 98
 SUBTITLE_Y = 95
 
-# Colors - all green for positive performance
-GREEN_BAR = "#8bd0a7"
-GREEN_BORDER = '#8ab7a0'
+# ===== COLORS BY CONDITION =====
+ADV_BAR = "#dda19e"
+ADV_BORDER = "#c58b7d"
+
+EQUAL_BAR = "#7bb3e0"
+EQUAL_BORDER = "#6a9dca"
+
+DISADV_BAR = "#8bd0a7"
+DISADV_BORDER = "#8ab7a0"
+CONSISTENT_BAR = "#b8a4d4"
+CONSISTENT_BORDER = "#a594bf"
 
 def create_placeholder_image(size=100):
     img = Image.new('RGB', (size, size), color='#34495e')
@@ -199,7 +207,7 @@ def load_player_image(player_name, photo_dir, size=50):
     
     return OffsetImage(img, zoom=zoom)
 
-def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col):
+def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_color, border_color):
     """Create chart showing K/D performance in specific economy condition"""
     
     fig, ax = plt.subplots(figsize=(FIGURE_WIDTH_INCHES, FIGURE_HEIGHT_INCHES))
@@ -242,7 +250,7 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col):
         imagebox = AnnotationBbox(img, (PHOTO_X, y_pos), 
                                  frameon=True, 
                                  box_alignment=(0.5, 0.5),
-                                 bboxprops=dict(edgecolor=GREEN_BORDER, 
+                                 bboxprops=dict(edgecolor=border_color, 
                                                linewidth=PHOTO_BORDER, 
                                                facecolor=team_color))
         ax.add_artist(imagebox)
@@ -256,7 +264,7 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col):
         # Add bar (normalized to max K/D)
         bar_length = (primary_kd / max_kd) * (BAR_END_X - BAR_START_X)
         bar_rect = plt.Rectangle((BAR_START_X, y_pos - BAR_HEIGHT/2), bar_length, BAR_HEIGHT,
-                                 facecolor=GREEN_BAR, edgecolor=GREEN_BORDER, 
+                                 facecolor=bar_color, edgecolor=border_color, 
                                  linewidth=BAR_BORDER, transform=ax.transData)
         ax.add_patch(bar_rect)
         
@@ -280,13 +288,13 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col):
            transform=ax.transData)
     
     # Add minimum rounds note
-    ax.text(101, 2, f'Minimum {MIN_ROUNDS} total rounds, {MIN_CONDITION_ROUNDS} in condition',
+    ax.text(101.2, 2, f'Minimum {MIN_ROUNDS} total rounds, {MIN_CONDITION_ROUNDS} in condition',
            ha='right', va='bottom',
            fontsize=8, style='italic', color='#9aa3aa',
            transform=ax.transData)
     
     # Add credits
-    ax.text(101, 0.5, 'Photo by HLTV | Data by clu0ki',
+    ax.text(101.2, 0.5, 'Photo by HLTV | Data by clu0ki',
            ha='right', va='bottom',
            fontsize=7, color='#9aa3aa',
            transform=ax.transData)
@@ -319,7 +327,7 @@ if len(df_filtered) < 10:
     print(f"[ERROR] Not enough players with {MIN_ROUNDS} rounds")
     exit(1)
 
-# ===== Chart 1: Best in Advantage =====
+# ===== Chart 1: Best in Advantage (BLUE) =====
 print("\nGenerating Chart 1: Best in Advantage...")
 df_adv = df_filtered[df_filtered["Adv_Rounds"] >= MIN_CONDITION_ROUNDS].copy()
 print(f"  Players with >={MIN_CONDITION_ROUNDS} advantage rounds: {len(df_adv)}")
@@ -331,12 +339,14 @@ if len(df_adv) >= 10:
         "TOP 10 K/D - ADVANTAGE $",
         "Players with highest K/D when their team has economy advantage (±$2000 threshold)",
         output_advantage,
-        "Adv_KD"
+        "Adv_KD",
+        ADV_BAR,
+        ADV_BORDER
     )
 else:
     print(f"  [SKIP] Not enough players for advantage chart")
 
-# ===== Chart 2: Best in Equal =====
+# ===== Chart 2: Best in Equal (YELLOW) =====
 print("\nGenerating Chart 2: Best in Equal...")
 df_eq = df_filtered[df_filtered["Equal_Rounds"] >= MIN_CONDITION_ROUNDS].copy()
 print(f"  Players with >={MIN_CONDITION_ROUNDS} equal rounds: {len(df_eq)}")
@@ -348,12 +358,14 @@ if len(df_eq) >= 10:
         "TOP 10 K/D - EQUAL $",
         "Players with highest K/D when economies are balanced (±$2000 threshold)",
         output_equal,
-        "Equal_KD"
+        "Equal_KD",
+        EQUAL_BAR,
+        EQUAL_BORDER
     )
 else:
     print(f"  [SKIP] Not enough players for equal chart")
 
-# ===== Chart 3: Best in Disadvantage =====
+# ===== Chart 3: Best in Disadvantage (GREEN) =====
 print("\nGenerating Chart 3: Best in Disadvantage...")
 df_disadv = df_filtered[df_filtered["Disadv_Rounds"] >= MIN_CONDITION_ROUNDS].copy()
 print(f"  Players with >={MIN_CONDITION_ROUNDS} disadvantage rounds: {len(df_disadv)}")
@@ -365,12 +377,14 @@ if len(df_disadv) >= 10:
         "TOP 10 K/D - DISADVANTAGE $",
         "Players with highest K/D when their team has economy disadvantage (±$2000 threshold)",
         output_disadvantage,
-        "Disadv_KD"
+        "Disadv_KD",
+        DISADV_BAR,
+        DISADV_BORDER
     )
 else:
     print(f"  [SKIP] Not enough players for disadvantage chart")
 
-# ===== Chart 4: Most Consistent =====
+# ===== Chart 4: Most Consistent (PURPLE) =====
 print("\nGenerating Chart 4: Most Consistent...")
 # Need significant rounds in ALL conditions
 df_consistent = df_filtered[
@@ -390,7 +404,9 @@ if len(df_consistent) >= 10:
         "TOP 10 MOST CONSISTENT PLAYERS",
         "Players with smallest K/D variance across all economy conditions",
         output_consistent,
-        "Overall_KD"
+        "Overall_KD",
+        CONSISTENT_BAR,
+        CONSISTENT_BORDER
     )
 else:
     print(f"  [SKIP] Not enough players for consistency chart")
