@@ -213,6 +213,9 @@ for demo_path in demo_files:
             defuse_tick = bomb_events[round_num]["defuse_tick"]
             detonate_tick = bomb_events[round_num]["detonate_tick"]
         
+        # Calculate 5-second window in ticks
+        five_seconds_ticks = 5 * tickrate
+        
         # Process each kill
         for _, kill_row in round_kills.iterrows():
             attacker = kill_row["attacker_name"]
@@ -223,24 +226,28 @@ for demo_path in demo_files:
                 continue
             
             # Determine if this is an exit frag
+            # Exit frag = kill in the last 5 seconds before round-deciding event for losing team
             is_exit_frag = False
             
             # CT exit frags: CT lost by bomb exploding
             if attacker_side == "ct" and reason == "bomb_exploded" and winner == "t":
                 # Use detonate tick if available, otherwise fallback to end_tick
                 event_tick = detonate_tick if detonate_tick is not None else end_tick
-                if kill_tick > event_tick:
+                # Kill is exit frag if within 5 seconds before detonation
+                if kill_tick > event_tick - five_seconds_ticks:
                     is_exit_frag = True
             
             # T exit frags: T lost by bomb defused
             elif attacker_side == "t" and reason == "bomb_defused" and winner == "ct":
-                if defuse_tick is not None and kill_tick > defuse_tick:
-                    is_exit_frag = True
+                if defuse_tick is not None:
+                    # Kill is exit frag if within 5 seconds before defuse
+                    if kill_tick > defuse_tick - five_seconds_ticks:
+                        is_exit_frag = True
             
             # T exit frags: T lost by time running out
             elif attacker_side == "t" and reason == "time_ran_out" and winner == "ct":
-                # Kill in the grace period (end < kill_tick <= official_end)
-                if kill_tick > end_tick and kill_tick <= official_end_tick:
+                # Kill is exit frag if within 5 seconds before time ran out
+                if kill_tick > end_tick - five_seconds_ticks and kill_tick <= official_end_tick:
                     is_exit_frag = True
             
             # No exit frags possible for:
