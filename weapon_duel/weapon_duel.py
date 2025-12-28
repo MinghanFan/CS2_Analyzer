@@ -6,7 +6,7 @@ from collections import defaultdict
 
 # ===== Configuration =====
 #demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025")  # Change to your root directory
-demo_root = Path("/Users/minghanfan/Documents/Test/train") 
+demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025/BLAST_Bounty_2025_Season_1_Finals") 
 output_csv = "weapon_duel_economy_analysis_test.csv"
 EQUAL_THRESHOLD = 200  # ±$200 for equal economy
 DEFAULT_TICKRATE = 64
@@ -33,7 +33,7 @@ weapon_prices = {
 
 # ===== Valid weapons for knife round detection =====
 valid_guns = {
-    "hkp2000", "elite", "glock", "p250", "fiveseven", "tec9", "cz75a", "deagle", "revolver",
+    "hkp2000", "elite", "glock", "p250", "fiveseven", "tec9", "cz75a", "deagle", "revolver", "usp_silencer",
     "mac10", "mp9", "mp7", "mp5sd", "ump45", "p90", "bizon",
     "galilar", "famas", "ak47", "m4a1", "m4a1_silencer", "sg556", "aug",
     "ssg08", "awp", "g3sg1", "scar20",
@@ -125,6 +125,7 @@ player_stats = defaultdict(lambda: {
 # Track all unique weapons seen
 unique_attacker_weapons = set()
 unique_victim_weapons = set()
+unique_kill_weapons = set()  # Track weapons from 'weapon' column
 
 countknife = 0
 
@@ -184,7 +185,7 @@ for demo_path in demo_files:
     
     # Check for required columns
     required_cols = ["attacker_name", "attacker_side", "victim_name", "victim_side", 
-                     "attacker_active_weapon_name", "victim_active_weapon_name"]
+                     "weapon","attacker_active_weapon_name", "victim_active_weapon_name"]
     missing = [c for c in required_cols if c not in kills_df.columns]
     
     if missing:
@@ -200,15 +201,15 @@ for demo_path in demo_files:
     
     # Exclude world/environmental deaths AND utility kills
     # Only keep valid weapons (guns + knife + zeus)
-    if "attacker_active_weapon_name" in kills_df.columns:
+    if "weapon" in kills_df.columns:
         # Exclude world damage
-        kills_df = kills_df[~kills_df["attacker_active_weapon_name"].astype(str).str.lower().isin(
+        kills_df = kills_df[~kills_df["weapon"].astype(str).str.lower().isin(
             ["world", "worldspawn", "trigger_hurt", "entityflame"]
         )]
         
         # Exclude utility/grenade kills (HE grenade, molotov/incendiary burn kills)
         # Keep only: guns, knife, zeus
-        kills_df = kills_df[~kills_df["attacker_active_weapon_name"].astype(str).str.lower().str.contains(
+        kills_df = kills_df[~kills_df["weapon"].astype(str).str.lower().str.contains(
             "grenade|molotov|incendiary|inferno|flashbang|smoke|decoy", 
             case=False, 
             na=False
@@ -224,14 +225,17 @@ for demo_path in demo_files:
     for _, kill in kills_df.iterrows():
         attacker = kill["attacker_name"]
         victim = kill["victim_name"]
-        attacker_weapon = kill["attacker_active_weapon_name"]
-        victim_weapon = kill["victim_active_weapon_name"]
+        attacker_weapon = kill["attacker_active_weapon_name"]  # Weapon attacker was holding
+        victim_weapon = kill["victim_active_weapon_name"]  # Weapon victim was holding
+        kill_weapon = kill.get("weapon", None)  # Weapon used to make the kill
         
         # Track unique weapons
         if pd.notna(attacker_weapon):
             unique_attacker_weapons.add(str(attacker_weapon).strip())
         if pd.notna(victim_weapon):
             unique_victim_weapons.add(str(victim_weapon).strip())
+        if pd.notna(kill_weapon):
+            unique_kill_weapons.add(str(kill_weapon).strip())
         
         # Get weapon values
         attacker_value = get_weapon_value(attacker_weapon)
@@ -280,12 +284,18 @@ print(f"{'='*70}")
 print("\n" + "="*70)
 print("UNIQUE WEAPONS SEEN IN PROCESSED KILLS")
 print("="*70)
-print(f"\nAttacker weapons ({len(unique_attacker_weapons)}):")
+
+print(f"\nKill weapons (from 'weapon' column) ({len(unique_kill_weapons)}):")
+for weapon in sorted(unique_kill_weapons):
+    value = get_weapon_value(weapon)
+    print(f"  {weapon:<30} ")
+
+print(f"\nAttacker active weapons ({len(unique_attacker_weapons)}):")
 for weapon in sorted(unique_attacker_weapons):
     value = get_weapon_value(weapon)
     print(f"  {weapon:<30} ${value}")
 
-print(f"\nVictim weapons ({len(unique_victim_weapons)}):")
+print(f"\nVictim active weapons ({len(unique_victim_weapons)}):")
 for weapon in sorted(unique_victim_weapons):
     value = get_weapon_value(weapon)
     print(f"  {weapon:<30} ${value}")
@@ -300,6 +310,16 @@ for weapon in all_weapons:
 if missing_from_dict:
     print(f"\nWeapons NOT in price dictionary (counted as $0):")
     for weapon in sorted(missing_from_dict):
+        print(f"  {weapon}")
+
+miss_from_valid_gun = []
+for weapon in unique_kill_weapons:
+    if weapon.lower() not in valid_guns:
+        miss_from_valid_gun.append(weapon)
+
+if miss_from_valid_gun:
+    print(f"\nKill weapons NOT in valid_guns set:")
+    for weapon in sorted(miss_from_valid_gun):
         print(f"  {weapon}")
 
 print("\n" + "="*70)
