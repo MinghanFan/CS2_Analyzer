@@ -13,7 +13,7 @@ output_equal = "weapon_adv_best_equal.png"
 output_disadvantage = "weapon_adv_best_disadvantage.png"
 output_consistent = "weapon_adv_most_consistent.png"
 MIN_ROUNDS = 1200
-MIN_CONDITION_ROUNDS = 400  # Minimum rounds in the specific condition being analyzed
+MIN_CONDITION_ROUNDS = 400
 
 # ===== TEAM COLORS =====
 TEAM_COLORS = {
@@ -52,7 +52,7 @@ PLAYER_TEAMS = {
     "ropz": "Vitality",
     "kyousuke": "Falcons",
     "frozen": "FaZe",
-    "XANTARES": "Eternal Fire",
+    "XANTARES": "Aurora",
     "molodoy": "FURIA",
     "MATYS": "G2",
     "NiKo": "Falcons",
@@ -66,7 +66,7 @@ PLAYER_TEAMS = {
     "iM": "Natus Vincere",
     "YEKINDAR": "FURIA",
     "REZ": "GamerLegion",
-    "Wicadia": "Eternal Fire",
+    "Wicadia": "Aurora",
     "yuurih": "FURIA",
     "zont1x": "Spirit",
     "PR": "GamerLegion",
@@ -77,7 +77,7 @@ PLAYER_TEAMS = {
     "w0nderful": "Natus Vincere",
     "torzsi": "MOUZ",
     "jL": "Natus Vincere",
-    "woxic": "Eternal Fire",
+    "woxic": "Aurora",
     "stavn": "Astralis",
     "insani": "MIBR",
     "hallzerk": "Complexity",
@@ -89,7 +89,7 @@ PLAYER_TEAMS = {
     "Jimpphat": "MOUZ",
     "910": "The MongolZ",
     "fame": "Virtus.pro",
-    "jottAAA": "Eternal Fire",
+    "jottAAA": "Aurora",
     "FL1T": "Virtus.pro",
     "NertZ": "Liquid",
     "rain": "FaZe",
@@ -137,7 +137,7 @@ PLAYER_TEAMS = {
     "LNZ": "HEROIC",
     "siuhy": "Liquid",
     "Lucaozy": "MIBR",
-    "MAJ3R": "Eternal Fire",
+    "MAJ3R": "Aurora",
     "cadiaN": "Astralis",
 }
 
@@ -147,14 +147,15 @@ FIGURE_HEIGHT_INCHES = 10
 
 PHOTO_X = 8
 NAME_X = 14.5
-BAR_START_X = 29
-BAR_END_X = 72
+BAR_START_X = 32-3
+BAR_END_X = 75-3
 STATS_X_OFFSET = 2
 
 Y_START = 12
 Y_SPACING = 9
 
 PHOTO_SIZE = 57
+PHOTO_BOX_SIZE = 9
 BAR_HEIGHT = 1.7
 PHOTO_BORDER = 1
 BAR_BORDER = 2
@@ -177,6 +178,7 @@ EQUAL_BORDER = "#6a9dca"
 
 DISADV_BAR = "#8bd0a7"
 DISADV_BORDER = "#8ab7a0"
+
 CONSISTENT_BAR = "#b8a4d4"
 CONSISTENT_BORDER = "#a594bf"
 
@@ -208,7 +210,7 @@ def load_player_image(player_name, photo_dir, size=50):
     return OffsetImage(img, zoom=zoom)
 
 def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_color, border_color):
-    """Create chart showing K/D performance in specific economy condition"""
+    """Create chart with ABSOLUTE positioning - matching exit frag style"""
     
     fig, ax = plt.subplots(figsize=(FIGURE_WIDTH_INCHES, FIGURE_HEIGHT_INCHES))
     
@@ -216,23 +218,18 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_
     ax.set_ylim(0, 100)
     ax.axis('off')
     
-    # Calculate max K/D for bar scaling
     kd_values = [row[metric_col] for _, row in data.iterrows()]
     max_kd = max(kd_values)
     
-    # Draw each player row
     for idx, (i, row) in enumerate(data.iterrows()):
         player_name = row["Player"]
         
-        # Calculate K/Ds for all conditions
         adv_kd = row["Adv_KD"]
         eq_kd = row["Equal_KD"]
         disadv_kd = row["Disadv_KD"]
         
-        # Get the primary metric for this chart
         primary_kd = row[metric_col]
         
-        # Calculate Y position
         y_pos = 100 - Y_START - (idx * Y_SPACING)
         
         # Add grey background for even rows
@@ -242,17 +239,29 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_
                                      zorder=0, transform=ax.transData, clip_on=False)
             ax.add_patch(grey_rect)
         
-        # Add photo with team color background
+        # Get team color
         team_name = PLAYER_TEAMS.get(player_name, "default")
         team_color = TEAM_COLORS.get(team_name, TEAM_COLORS["default"])
         
+        # Draw FIXED-SIZE background square for photo
+        photo_bg = plt.Rectangle(
+            (PHOTO_X - PHOTO_BOX_SIZE/2, y_pos - PHOTO_BOX_SIZE/2),
+            PHOTO_BOX_SIZE,
+            PHOTO_BOX_SIZE,
+            facecolor=team_color,
+            edgecolor=border_color,
+            linewidth=PHOTO_BORDER,
+            transform=ax.transData,
+            zorder=1
+        )
+        ax.add_patch(photo_bg)
+        
+        # Add photo on top of background square (no frame)
         img = load_player_image(player_name, player_photos_dir, size=PHOTO_SIZE)
         imagebox = AnnotationBbox(img, (PHOTO_X, y_pos), 
-                                 frameon=True, 
+                                 frameon=False,  # No frame, background square already drawn
                                  box_alignment=(0.5, 0.5),
-                                 bboxprops=dict(edgecolor=border_color, 
-                                               linewidth=PHOTO_BORDER, 
-                                               facecolor=team_color))
+                                 zorder=2)
         ax.add_artist(imagebox)
         
         # Add player name
@@ -261,14 +270,14 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_
                fontsize=NAME_FONT, fontweight='bold',
                color='#4a545b', transform=ax.transData)
         
-        # Add bar (normalized to max K/D)
+        # Add bar
         bar_length = (primary_kd / max_kd) * (BAR_END_X - BAR_START_X)
         bar_rect = plt.Rectangle((BAR_START_X, y_pos - BAR_HEIGHT/2), bar_length, BAR_HEIGHT,
                                  facecolor=bar_color, edgecolor=border_color, 
                                  linewidth=BAR_BORDER, transform=ax.transData)
         ax.add_patch(bar_rect)
         
-        # Add stats showing all three conditions
+        # Add stats
         stats_x = BAR_START_X + bar_length + STATS_X_OFFSET
         stats_text = f"Adv: {adv_kd:.2f}  |  Equal: {eq_kd:.2f}  |  Disadv: {disadv_kd:.2f}"
         ax.text(stats_x, y_pos, stats_text,
@@ -288,13 +297,13 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_
            transform=ax.transData)
     
     # Add minimum rounds note
-    ax.text(101.2, 2, f'Minimum {MIN_ROUNDS} total rounds, {MIN_CONDITION_ROUNDS} in condition',
+    ax.text(101, 2, f'Minimum {MIN_ROUNDS} total rounds, {MIN_CONDITION_ROUNDS} in condition',
            ha='right', va='bottom',
            fontsize=8, style='italic', color='#9aa3aa',
            transform=ax.transData)
     
     # Add credits
-    ax.text(101.2, 0.5, 'Photo by HLTV | Data by clu0ki',
+    ax.text(101, 0.5, 'Photo by HLTV | Data by clu0ki',
            ha='right', va='bottom',
            fontsize=7, color='#9aa3aa',
            transform=ax.transData)
@@ -308,18 +317,14 @@ def create_weapon_adv_chart(data, title, subtitle, output_file, metric_col, bar_
 print("Loading data...")
 df = pd.read_csv(csv_file)
 
-# Calculate K/D ratios
 df["Adv_KD"] = df["Adv_Kills"] / df["Adv_Deaths"].replace(0, 1)
 df["Equal_KD"] = df["Equal_Kills"] / df["Equal_Deaths"].replace(0, 1)
 df["Disadv_KD"] = df["Disadv_Kills"] / df["Disadv_Deaths"].replace(0, 1)
 df["Overall_KD"] = df["Overall_Kills"] / df["Overall_Deaths"].replace(0, 1)
-
-# Calculate K/D variance (for consistency metric)
 df["KD_Variance"] = df[["Adv_KD", "Equal_KD", "Disadv_KD"]].var(axis=1)
 
 print(f"Total players: {len(df)}")
 
-# Filter: minimum total rounds
 df_filtered = df[df["Overall_Rounds"] >= MIN_ROUNDS].copy()
 print(f"Players with >={MIN_ROUNDS} total rounds: {len(df_filtered)}")
 
@@ -327,7 +332,7 @@ if len(df_filtered) < 10:
     print(f"[ERROR] Not enough players with {MIN_ROUNDS} rounds")
     exit(1)
 
-# ===== Chart 1: Best in Advantage (BLUE) =====
+# Chart 1: Best in Advantage
 print("\nGenerating Chart 1: Best in Advantage...")
 df_adv = df_filtered[df_filtered["Adv_Rounds"] >= MIN_CONDITION_ROUNDS].copy()
 print(f"  Players with >={MIN_CONDITION_ROUNDS} advantage rounds: {len(df_adv)}")
@@ -346,7 +351,7 @@ if len(df_adv) >= 10:
 else:
     print(f"  [SKIP] Not enough players for advantage chart")
 
-# ===== Chart 2: Best in Equal (YELLOW) =====
+# Chart 2: Best in Equal
 print("\nGenerating Chart 2: Best in Equal...")
 df_eq = df_filtered[df_filtered["Equal_Rounds"] >= MIN_CONDITION_ROUNDS].copy()
 print(f"  Players with >={MIN_CONDITION_ROUNDS} equal rounds: {len(df_eq)}")
@@ -365,7 +370,7 @@ if len(df_eq) >= 10:
 else:
     print(f"  [SKIP] Not enough players for equal chart")
 
-# ===== Chart 3: Best in Disadvantage (GREEN) =====
+# Chart 3: Best in Disadvantage
 print("\nGenerating Chart 3: Best in Disadvantage...")
 df_disadv = df_filtered[df_filtered["Disadv_Rounds"] >= MIN_CONDITION_ROUNDS].copy()
 print(f"  Players with >={MIN_CONDITION_ROUNDS} disadvantage rounds: {len(df_disadv)}")
@@ -384,9 +389,8 @@ if len(df_disadv) >= 10:
 else:
     print(f"  [SKIP] Not enough players for disadvantage chart")
 
-# ===== Chart 4: Most Consistent (PURPLE) =====
+# Chart 4: Most Consistent
 print("\nGenerating Chart 4: Most Consistent...")
-# Need significant rounds in ALL conditions
 df_consistent = df_filtered[
     (df_filtered["Adv_Rounds"] >= MIN_CONDITION_ROUNDS) &
     (df_filtered["Equal_Rounds"] >= MIN_CONDITION_ROUNDS) &
@@ -395,10 +399,7 @@ df_consistent = df_filtered[
 print(f"  Players with >={MIN_CONDITION_ROUNDS} rounds in ALL conditions: {len(df_consistent)}")
 
 if len(df_consistent) >= 10:
-    # Sort by LOWEST variance (most consistent) with high overall K/D as tiebreaker
     top_consistent = df_consistent.nsmallest(10, "KD_Variance").reset_index(drop=True)
-    
-    # For display, we'll use Overall_KD as the bar metric
     create_weapon_adv_chart(
         top_consistent,
         "TOP 10 MOST CONSISTENT PLAYERS",
