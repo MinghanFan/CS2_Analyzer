@@ -158,7 +158,7 @@ for demo_path in demo_files:
                 if kills_df is not None and not kills_df.empty:
                     kills_df = kills_df[kills_df["round_num"] != first_round]
 
-    # ===== Track round participation from ticks (like econ_adv.py) =====
+    # ===== Track round participation from ticks =====
     if ticks_df is not None and not ticks_df.empty and "name" in ticks_df.columns and "round_num" in ticks_df.columns:
         ticks_df_clean = ticks_df.dropna(subset=["name", "round_num"]).copy()
         ticks_df_clean["name"] = ticks_df_clean["name"].apply(lambda x: norm_name(str(x)))
@@ -185,12 +185,31 @@ for demo_path in demo_files:
         print(f"[warn] {demo_path.name} kills missing columns: {missing}")
         continue
     
-    # Clean kills data
+    # Clean kills data - remove suicides and world deaths
     kills_df = kills_df.dropna(subset=["attacker_name", "victim_name", "attacker_side", "victim_side"])
     
     # Normalize names
     kills_df["attacker_name"] = kills_df["attacker_name"].apply(norm_name)
     kills_df["victim_name"] = kills_df["victim_name"].apply(norm_name)
+    
+    # Exclude world/environmental deaths AND utility kills
+    # Only keep valid weapons (guns + knife + zeus)
+    if "attacker_active_weapon_name" in kills_df.columns:
+        # Exclude world damage
+        kills_df = kills_df[~kills_df["attacker_active_weapon_name"].astype(str).str.lower().isin(
+            ["world", "worldspawn", "trigger_hurt", "entityflame"]
+        )]
+        
+        # Exclude utility/grenade kills (HE grenade, molotov/incendiary burn kills)
+        # Keep only: guns, knife, zeus
+        kills_df = kills_df[~kills_df["attacker_active_weapon_name"].astype(str).str.lower().str.contains(
+            "grenade|molotov|incendiary|inferno|flashbang|smoke|decoy", 
+            case=False, 
+            na=False
+        )]
+    
+    # Exclude suicides (attacker == victim)
+    kills_df = kills_df[kills_df["attacker_name"] != kills_df["victim_name"]]
     
     # Exclude teamkills
     kills_df = kills_df[kills_df["attacker_side"] != kills_df["victim_side"]]
