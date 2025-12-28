@@ -5,8 +5,9 @@ import numpy as np
 from collections import defaultdict
 
 # ===== Configuration =====
-demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025")  # Change to your root directory
-output_csv = "weapon_duel_economy_analysis.csv"
+#demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025")  # Change to your root directory
+demo_root = Path("/Users/minghanfan/Documents/Test/train") 
+output_csv = "weapon_duel_economy_analysis_test.csv"
 EQUAL_THRESHOLD = 200  # ±$200 for equal economy
 DEFAULT_TICKRATE = 64
 
@@ -121,13 +122,18 @@ player_stats = defaultdict(lambda: {
     "rounds_participated": 0
 })
 
+# Track all unique weapons seen
+unique_attacker_weapons = set()
+unique_victim_weapons = set()
+
 countknife = 0
 
 for demo_path in demo_files:
     print(f"\nParsing {demo_path.name}")
     try:
         demo = Demo(str(demo_path), verbose=False)
-        demo.parse(player_props=["name", "side"])
+        demo.parse(player_props=["name", "side", 
+                                 "active_weapon_name","inventory", "team_rounds_total", "steamid"])
         
         rounds_df = demo.rounds.to_pandas()
         ticks_df = demo.ticks.to_pandas()
@@ -221,6 +227,12 @@ for demo_path in demo_files:
         attacker_weapon = kill["attacker_active_weapon_name"]
         victim_weapon = kill["victim_active_weapon_name"]
         
+        # Track unique weapons
+        if pd.notna(attacker_weapon):
+            unique_attacker_weapons.add(str(attacker_weapon).strip())
+        if pd.notna(victim_weapon):
+            unique_victim_weapons.add(str(victim_weapon).strip())
+        
         # Get weapon values
         attacker_value = get_weapon_value(attacker_weapon)
         victim_value = get_weapon_value(victim_weapon)
@@ -263,6 +275,34 @@ for demo_path in demo_files:
 print(f"\n{'='*70}")
 print("GENERATING OUTPUT CSV")
 print(f"{'='*70}")
+
+# ===== Print unique weapons seen =====
+print("\n" + "="*70)
+print("UNIQUE WEAPONS SEEN IN PROCESSED KILLS")
+print("="*70)
+print(f"\nAttacker weapons ({len(unique_attacker_weapons)}):")
+for weapon in sorted(unique_attacker_weapons):
+    value = get_weapon_value(weapon)
+    print(f"  {weapon:<30} ${value}")
+
+print(f"\nVictim weapons ({len(unique_victim_weapons)}):")
+for weapon in sorted(unique_victim_weapons):
+    value = get_weapon_value(weapon)
+    print(f"  {weapon:<30} ${value}")
+
+# Find weapons in data but not in price dict
+all_weapons = unique_attacker_weapons.union(unique_victim_weapons)
+missing_from_dict = []
+for weapon in all_weapons:
+    if get_weapon_value(weapon) == 0 and "knife" not in weapon.lower():
+        missing_from_dict.append(weapon)
+
+if missing_from_dict:
+    print(f"\nWeapons NOT in price dictionary (counted as $0):")
+    for weapon in sorted(missing_from_dict):
+        print(f"  {weapon}")
+
+print("\n" + "="*70)
 
 # ===== Generate output CSV =====
 results = []
