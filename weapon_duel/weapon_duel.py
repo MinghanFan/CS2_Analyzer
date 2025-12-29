@@ -6,8 +6,8 @@ from collections import defaultdict
 
 # ===== Configuration =====
 #demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025")  # Change to your root directory
-demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025/BLAST_Bounty_2025_Season_1_Finals") 
-output_csv = "weapon_duel_economy_analysis_test.csv"
+demo_root = Path("/Volumes/TOSHIBA EXT/Demo_2025") 
+output_csv = "weapon_duel_economy_analysis.csv"
 EQUAL_THRESHOLD = 200  # ±$200 for equal economy
 DEFAULT_TICKRATE = 64
 
@@ -33,7 +33,7 @@ weapon_prices = {
 
 # ===== Valid weapons for knife round detection =====
 valid_guns = {
-    "hkp2000", "elite", "glock", "p250", "fiveseven", "tec9", "cz75a", "deagle", "revolver", "usp_silencer",
+    "hkp2000", "elite", "glock", "p250", "fiveseven", "tec9", "cz75a", "deagle", "revolver", "usp_silencer", "usp_silencer_off",
     "mac10", "mp9", "mp7", "mp5sd", "ump45", "p90", "bizon",
     "galilar", "famas", "ak47", "m4a1", "m4a1_silencer", "sg556", "aug",
     "ssg08", "awp", "g3sg1", "scar20",
@@ -83,7 +83,7 @@ def get_weapon_value(weapon_name):
     
     # Knife and grenades = $0
     knife_grenade_keywords = ["knife", "grenade", "molotov", "incendiary", "flashbang", 
-                              "smoke", "decoy", "c4"]
+                              "smoke", "decoy", "c4", "karambit", "shadow", "dagger", "bayonet"]
     if any(kw in weapon_name.lower() for kw in knife_grenade_keywords):
         return 0
     
